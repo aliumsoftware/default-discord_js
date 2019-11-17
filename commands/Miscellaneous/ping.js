@@ -16,7 +16,7 @@ const { orange } = require("../../colors.json");
       let ping = m.createdTimestamp - message.createdTimestamp
       let embed = new RichEmbed()
         .setColor(orange)
-        .setThumbnail('https://cdn.discordapp.com/attachments/645662510636072981/645668612987682836/logo.png')
+        .setThumbnail(client.user.displayAvatarURL)
        // .setTitle(`🏓 | Ping-pong!`)
         .addField('[**__Bot Latency:__**]', `\`${ping}MS\``, true)
         .addField('[**__API Response Time:__**]', `\`${Math.round(client.ping)}MS\``, true)

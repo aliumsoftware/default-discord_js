@@ -21,7 +21,7 @@ const { RichEmbed } = require("discord.js");
       }
     let embed = new RichEmbed()
       .setColor(orange)
-      .setThumbnail('https://cdn.discordapp.com/attachments/645662510636072981/645668612987682836/logo.png')
+      .setThumbnail(client.user.displayAvatarURL)
       .addField('[**__Uptime:__**]', `\`${dur(client.uptime)}\``, true)
       .addField('[**__Commands:__**]', `\`${client.commands.size} commands\``, true)
       .addField('[**__Client ID__**]', `\`${client.user.id}\``)
