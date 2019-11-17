@@ -12,7 +12,7 @@ const { orange } = require("../../colors.json");
     },
     
   run: async (client, message, args) => {
-    message.channel.send('Getting latency(s)...').then(m => {
+    message.channel.send(`${client.emojis.get('645467593830039623')} Pinging...`).then(m => {
       let ping = m.createdTimestamp - message.createdTimestamp
       let embed = new RichEmbed()
         .setColor(orange)

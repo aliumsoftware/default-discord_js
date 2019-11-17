@@ -10,7 +10,8 @@
     "express": "^4.16.4",
     "discord.js": "^11.5.1",
     "fs": "^0.0.2",
-    "ascii-table": "^0.0.9"
+    "ascii-table": "^0.0.9",
+    "util": "^0.12.1"
   },
   "engines": {
     "node": "8.x"
