@@ -9,4 +9,5 @@ const prefix = "^";
     let command = client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
       if(command) 
         command.run(client, message, args);
+      if(!command) return;
   }

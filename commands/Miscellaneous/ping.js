@@ -12,30 +12,15 @@ const { orange } = require("../../colors.json");
     },
     
   run: async (client, message, args) => {
-    
+    message.channel.send('Getting latency(s)...').then(m => {
+      let ping = m.createdTimestamp - message.createdTimestamp
+      let embed = new RichEmbed()
+        .setColor(orange)
+        .setTitle(`🏓 | Ping-pong!`)
+        .setDescription(`**Executor Latency**: ${ping}ms 
+        **API Latency**: ${Math.round(client.ping)}ms`)
+      m.delete()
+      message.channel.send(embed)
+      })
     }
   }
-
-/* const { RichEmbed } = require("discord.js")
-const { blue } = require("../../colors.json")
-
-    module.exports = {
-        name: "ping",
-        aliases: ["ms", "latency"],
-        usage: ["-ping"],
-        description: "Outputs the Client and the API Latency",
-        category: "Informational",
-
-    run: async (client, message, args) => {
-        message.channel.send(`Getting the Latency. This may take a moment.`).then(e => {
-            let ping = e.createdTimestamp - message.createdTimestamp
-            let embed = new RichEmbed()
-                .setColor(blue)
-                //.setAuthor(`${message.author.tag},`, message.author.displayAvatarURL)
-                .setDescription(`
-                **Wallet Latency:** \`${ping}\`ms
-                **Discord.js Latency:** \`${Math.round(client.ping)}\`ms`)
-                e.edit(embed)
-            })
-        }
-    }*/
