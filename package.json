@@ -12,7 +12,8 @@
     "fs": "^0.0.2",
     "ascii-table": "^0.0.9",
     "util": "^0.12.1",
-    "common-tags": "^1.8.0"
+    "common-tags": "^1.8.0",
+    "teamtrees-api": "^1.2.0"
   },
   "engines": {
     "node": "8.x"
