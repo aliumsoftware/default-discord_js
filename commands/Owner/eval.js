@@ -26,10 +26,10 @@ const { inspect } = require("util");
             let hrStart = process.hrtime()
             let hrDiff;
             hrDiff = process.hrtime(hrStart)
-            let evaluated = new RichEmbed()
+            let e = new RichEmbed()
               .setColor(orange)
               .setDescription(`Took: *${hrDiff[0] > 0 ? `${hrDiff[0]}s ` : ''}${hrDiff[1] / 1000000}ms.*\`\`\`javascript\n${evaluated}\`\`\``, { maxLength: 1900 })
-            return message.channel.send(evaluated)
+            return message.channel.send(e)
           }
         } catch(e) {
           let oops = new RichEmbed()
@@ -38,6 +38,7 @@ const { inspect } = require("util");
           return message.channel.send(oops)
         }
       } else {
+        if(!message.guild.me.hasPermission(["ADMINISTRATOR", "ADD_REACTIONS"])) return;
         return message.react(client.emojis.get("645467660229935135"))
       }
     }

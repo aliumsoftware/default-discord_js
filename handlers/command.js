@@ -7,7 +7,6 @@ module.exports = (client) => {
             let pull = require(`../commands/${dirs}/${file}`);
             client.commands.set(pull.config.name, pull);
             if (pull.config.aliases) pull.config.aliases.forEach(a => client.aliases.set(a, pull.config.name));
-            
           };
         };
         ["Miscellaneous", "Owner"].forEach(x => load(x));
