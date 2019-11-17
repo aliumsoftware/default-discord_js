@@ -16,12 +16,10 @@ const { stripIndents } = require("common-tags");
   run: async (client, message, args) => {
     let embed = new RichEmbed()
       .setColor(orange)
-      .setAuthor(`${client.user.tag} Help`, client.user.displayAvatarURL)
     
       if(!args[0]) {
         const categories = readdirSync("./commands/")
         
-        embed.setDescription(`Command list for ${client.user.tag}. The prefix is: \`^\``)
         embed.setFooter(`Command Size: ${client.commands.size} | A Fueled Development © Project`);
         
         categories.forEach(category => {
@@ -29,7 +27,7 @@ const { stripIndents } = require("common-tags");
           const capitalise = category.slice(0, 1).toUpperCase() + category.slice(1)
             try {
               embed.setThumbnail(client.user.displayAvatarURL)
-              embed.addField(`**❯ ${capitalise} [${dir.size}]:**`, dir.map(c => `\`${c.config.name}\``).join(" "))  
+              embed.addField(`[**${capitalise} (${dir.size}): **]`, dir.map(c => `\`${c.config.name}\``).join(":"))  
             } catch(e) {
               
             }

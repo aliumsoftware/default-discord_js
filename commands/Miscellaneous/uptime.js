@@ -17,12 +17,14 @@ const { RichEmbed } = require("discord.js");
     const min = Math.floor((ms / (1000 * 60)) % 60).toString()
     const hrs = Math.floor((ms / (1000 * 60 * 60)) % 60).toString()
     const days = Math.floor((ms / (1000 * 60 * 60 * 24)) % 60).toString()
-      return `${days.padStart(1, '0')} days, ${hrs.padStart(2, '0')} hours, ${min.padStart(2, '0')} minutes, ${sec.padStart(2, '0')} seconds.`
+      return `${days.padStart(1, '0')}d ${hrs.padStart(2, '0')}h ${min.padStart(2, '0')}h ${sec.padStart(2, '0')}s`
       }
     let embed = new RichEmbed()
-      .setTitle(`**${client.emojis.get("645463669991407646")} | Uptime:**`)
       .setColor(orange)
-      .setDescription(`${dur(client.uptime)}`)
+      .setThumbnail('https://cdn.discordapp.com/attachments/645662510636072981/645668612987682836/logo.png')
+      .addField('[**__Uptime:__**]', `\`${dur(client.uptime)}\``, true)
+      .addField('[**__Commands:__**]', `\`${client.commands.size} commands\``, true)
+      .addField('[**__Client ID__**]', `\`${client.user.id}\``)
     message.channel.send(embed)
     }
   }
