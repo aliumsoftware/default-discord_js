@@ -19,8 +19,21 @@ let idle = client.emojis.get('645689592502288407');
 let dnd = client.emojis.get('645689543143718922');
 let offline = client.emojis.get('645689513590390785');
     // if
+    let status = user.presence.status
+  if(status === 'online') status = online;
+  if(status === 'idle') status = idle;
+  if(status === 'dnd') status = dnd;
+  if(status === 'offline') status = offline;
+    let game = user.presence.game
+  if(game === 'null') game = 'No game';
     
-  if(user.presence.status === 'online') user.presence.status = online
+    let uEmbed = new RichEmbed()
+      .setColor(orange)
+      .setTitle(`**${status} | ${user.tag} Information**`)
+      .addField('[**__Bot:__**]', `\`${user.bot ? 'Yes' : 'No'}\``, true)
+      .addField('[**__ID:__**]', `\`${user.id}\``, true).addField('[**__Game:__**]', `\`${game}\``, true)
+      .addField('[**__Roles__**]', `${user.roles.filter(f => f.name !== '@everyone').map(x => x).join(", ")}` )
+
     
-    }
-  }
+    } // ${member.roles.filter(f => f.name !== "@everyone").map(x => x).join(", ")}*
+  } // ${member.user.bot ? `Yes` : `No`}
