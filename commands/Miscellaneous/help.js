@@ -3,7 +3,18 @@ const { red, orange } = require("../../colors.json");
 const { readdirSync } = require('fs');
 
   module.exports = {
+    config: {
+      name: 'help',
+      aliases: ['commandhelp', 'commands'],
+      usage: '^help [command name or alias]',
+      description: 'Displays the commands or gives the command information',
+      category: 'Miscellaneous',
+      accessableby: 'Users'
+    },
     
+  run: async (client, message, args) => {
+    
+    }
   }
 
 
