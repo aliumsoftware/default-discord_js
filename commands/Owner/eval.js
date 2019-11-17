@@ -15,7 +15,18 @@ const { inspect } = require("util");
   run: async (client, message, args) => {
       if(message.author.id == '535585397435006987') {
         try {
-          
+        let toEv = args.join(" ")
+        let evaluated = inspect(eval(toEv, { depth: 0 }));
+          if(!toEv) {
+            let no = new RichEmbed()
+              .setColor(orange)
+              .setDescription('Error whilst executing: `air`')
+            return message.channel.send(no)
+          } else {
+            let hrStart = process.hrtime()
+            let hrDiff;
+            hrDiff = process.hrtime(hrStart)
+          }
         } catch(e) {
           
         }
@@ -26,16 +37,6 @@ const { inspect } = require("util");
   }
 
 /*
-  if(message.author.id == "535585397435006987") {
-    try {
-      let toEval = args.join(" ")
-                let evaluated = inspect(eval(toEval, { depth: 0 }));
-                if(toEval === "client.token") return message.author.send(embed)
-                if (!toEval) {
-                  let airE = new RichEmbed()
-                    .setColor(red)
-                    .setDescription(`Error while evaluating: \`null\``)
-                    return message.channel.send(airE);
                 } else {
                     let hrStart = process.hrtime()
                     let hrDiff;
