@@ -16,6 +16,7 @@ const { stripIndents } = require("common-tags");
   run: async (client, message, args) => {
     let embed = new RichEmbed()
       .setColor(orange)
+      .setAuthor(`${client.user.tag} Help`, client.user.displayAvatarURL)
     
       if(!args[0]) {
         const categories = readdirSync("./commands/")
@@ -27,7 +28,7 @@ const { stripIndents } = require("common-tags");
           const capitalise = category.slice(0, 1).toUpperCase() + category.slice(1)
             try {
               embed.setThumbnail(client.user.displayAvatarURL)
-              embed.addField(`[**${capitalise} (${dir.size}): **]`, dir.map(c => `\`${c.config.name}\``).join(":"))  
+              embed.addField(`**❯ ${capitalise} [${dir.size}]:**`, dir.map(c => `\`${c.config.name}\``).join(":"))  
             } catch(e) {
               
             }
@@ -47,12 +48,12 @@ const { stripIndents } = require("common-tags");
         embed.setThumbnail(client.user.displayAvatarURL)
         embed.setDescription(stripIndents `
 
-        **Command Name:** ${command.name}
-        **Command Aliases:** ${command.aliases ? command.aliases.join(", ") : 'No alias.'}
-        **Command Usage:** ${command.usage ? `\`${command.usage}\`` : 'No usage.'}
-        **Command Description:** ${command.description || 'No description.'}
-        **Command Category:** ${command.category || 'No category.'}
-        **Command Accessableby:** ${command.accessableby || 'No group provided.'}`)  
+        [**__Command Name:__**] ${command.name}
+        [**__Command Aliases:__**] ${command.aliases ? command.aliases.join(", ") : 'No alias.'}
+        [**__Command Usage:__**] ${command.usage ? `\`${command.usage}\`` : 'No usage.'}
+        [**__Command Description:__**] ${command.description || 'No description.'}
+        [**__Command Category:__**] ${command.category || 'No category.'}
+        [**__Command Accessableby:__**] ${command.accessableby || 'No group provided.'}`)  
         
         return message.channel.send(embed)
       }
