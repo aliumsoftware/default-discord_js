@@ -1,6 +1,7 @@
 const { RichEmbed } = require("discord.js");
 const { red, orange } = require("../../colors.json");
 const { readdirSync } = require('fs');
+const { stripIndents } = require("common-tags");
 
   module.exports = {
     config: {
@@ -25,7 +26,7 @@ const { readdirSync } = require('fs');
         embed.setFooter(`Command Size: ${client.commands.size} | A Fueled Development © Project`);
         
         categories.forEach(category => {
-          const dir = client.cmmands.filter(c => c.config.category === category)
+          const dir = client.commands.filter(c => c.config.category === category)
           const capitalise = category.slice(0, 1).toUpperCase() + category.slice(1)
             try {
               embed.addField(`❯ ${capitalise} [${dir.size}]:`, dir.map(c => `\`${c.config.name}\``).join(" "))
@@ -38,29 +39,22 @@ const { readdirSync } = require('fs');
         let command = client.commands.get(client.aliases.get(args[0].toLowerCase()) || args[0].toLowerCase())
         if(!command) {
           embed.setTitle('Invaild Command!')
-          embed.setDescription(`${args.slice(0).join(" ")}`)
+          embed.setDescription(`\`${args.slice(0).join(" ")}\` isn't a command. Do this command again but with no arguments to see the commands.`)
+          embed.setColor(red)
+          message.channel.send(embed)
         }
+        command = command.config
+        
+        embed.setDescription(stripIndents `${command.name.slice(0,1).toUpperCase() + command.name.slice(1)}
+
+        **Command Name:** ${command.name}
+        **Command Aliases:** ${command.aliases ? command.aliases.join(", ") : 'No alias.'}
+        **Command Usage:** ${command.usage ? `\`${command.usage}\`` : 'No usage.'}
+        **Command Description:** ${command.description || 'No description.'}
+        **Command Category:** ${command.category || 'No category.'}
+        **Command Accessableby:** ${command.accessableby || 'No group provided.'}`)  
+        
+        return message.channel.send(embed)
       }
     }
   }
-
-
-/* 
-
-    } else {
-        let command = bot.commands.get(bot.aliases.get(args[0].toLowerCase()) || args[0].toLowerCase())
-        if(!command) return message.channel.send(embed.setTitle("Invalid Command!").setDescription(`Do \`${prefix1}help_commands\` for the list of the commands.`).setThumbnail("https://cdn.discordapp.com/attachments/612020606480678968/625104289353826329/648903-star-ratings-512.png").setColor(red_light))
-        command = command.config
-
-        embed.setDescription(stripIndents` Command Help: **${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)}**
-        
-        **Command:** ${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)}
-        **Command Aliases:** ${command.aliases ? command.aliases.join(", ") : "None Specified."}
-        **Command Usage:** ${command.usage ? `\`${command.usage}\`` : "No Usage Specified"}
-        **Command Description:** ${command.description || "No Description Specified."}
-        **Command Category:** ${command.category || "No Category Specified."}
-        **Command Accessible By:** ${command.accessableby || "No group specified."}`).setColor(green_dark)
-
-        return message.channel.send(embed)
-    } 
- */

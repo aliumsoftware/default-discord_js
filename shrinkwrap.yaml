@@ -1,5 +1,6 @@
 dependencies:
   ascii-table: 0.0.9
+  common-tags: 1.8.0
   discord.js: 11.5.1
   express: 4.16.4
   fs: 0.0.2
@@ -49,6 +50,12 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-0ygVQE1olpn4Wk6k+odV3ROpYEg=
+  /common-tags/1.8.0:
+    dev: false
+    engines:
+      node: '>=4.0.0'
+    resolution:
+      integrity: sha512-6P6g0uetGpW/sdyUy/iQQCbFF0kWVMSIVSyYz7Zgjcgh8mgw8PQzDNZeyZ5DQ2gM7LBoZPHmnjz8rUthkBG5tw==
   /content-disposition/0.5.2:
     dev: false
     engines:
@@ -578,6 +585,7 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   ascii-table: ^0.0.9
+  common-tags: ^1.8.0
   discord.js: ^11.5.1
   express: ^4.16.4
   fs: ^0.0.2
