@@ -16,10 +16,11 @@ const { orange } = require("../../colors.json");
       let ping = m.createdTimestamp - message.createdTimestamp
       let embed = new RichEmbed()
         .setColor(orange)
-        .setThumbnail('https://cdn.discordapp.com/attachments/645419443840614403/645667143500693504/DnJjvC-database-clipart-black-photo.png')
-        .setTitle(`🏓 | Ping-pong!`)
+        .setThumbnail('https://cdn.discordapp.com/attachments/645662510636072981/645668612987682836/logo.png')
+       // .setTitle(`🏓 | Ping-pong!`)
         .addField('[**__Bot Latency:__**]', `\`${ping}MS\``, true)
-        .addField('[**__API Latency:__**]', `\`${Math.round(client.ping)}MS\``, true)
+        .addField('[**__Response Time:__**]', `\`${Math.round(client.ping)}MS\``, true)
+        .addField('[**__Client ID__**]', `\`${client.user.id}\``)
         
       m.delete()
       message.channel.send(embed)
