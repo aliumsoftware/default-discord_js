@@ -21,7 +21,7 @@ const { stripIndents } = require("common-tags");
       if(!args[0]) {
         const categories = readdirSync("./commands/")
         
-        embed.setDescription(`Here are the commands for ${client.user.tag}`)
+        embed.setDescription(`Command list for ${client.user.tag}. The prefix is: \`^\``)
         embed.setFooter(`Command Size: ${client.commands.size} | A Fueled Development © Project`);
         
         categories.forEach(category => {

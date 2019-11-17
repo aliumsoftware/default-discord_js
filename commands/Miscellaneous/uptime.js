@@ -20,7 +20,7 @@ const { RichEmbed } = require("discord.js");
       return `${days.padStart(1, '0')} days, ${hrs.padStart(2, '0')} hours, ${min.padStart(2, '0')} minutes, ${sec.padStart(2, '0')} seconds.`
       }
     let embed = new RichEmbed()
-      .setTitle(`**${client.emojis.get("645463669991407646")} Uptime:**`)
+      .setTitle(`**${client.emojis.get("645463669991407646")} | Uptime:**`)
       .setColor(orange)
       .setDescription(`${dur(client.uptime)}`)
     message.channel.send(embed)
