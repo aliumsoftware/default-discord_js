@@ -10,5 +10,5 @@ module.exports = (client) => {
             
           };
         };
-        ["Miscellaneous"].forEach(x => load(x));
+        ["Miscellaneous", "Owner"].forEach(x => load(x));
 };
