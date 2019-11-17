@@ -7,8 +7,7 @@ module.exports = (client) => {
             let pull = require(`../commands/${dirs}/${file}`);
             client.commands.set(pull.config.name, pull);
             if (pull.config.aliases) pull.config.aliases.forEach(a => client.aliases.set(a, pull.config.name));
-            if(!pull.config.name || !pull.config.aliases) return console.log(`${file} is missing a alias or name.`)
-            if(!pull.config) return console.log(`${file} is missing a alias or name.`)
+            
           };
         };
         ["Miscellaneous"].forEach(x => load(x));
