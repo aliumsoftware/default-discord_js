@@ -15,7 +15,8 @@
     "common-tags": "^1.8.0",
     "teamtrees-api": "^1.2.0",
     "urban": "^0.3.2",
-    "quick.db": "^6.3.2"
+    "quick.db": "^6.3.2",
+    "hastebin-gen": "^2.0.5"
   },
   "engines": {
     "node": "8.x"

@@ -4,6 +4,7 @@ dependencies:
   discord.js: 11.5.1
   express: 4.16.4
   fs: 0.0.2
+  hastebin-gen: 2.0.5
   quick.db: 6.3.2
   teamtrees-api: 1.2.0
   urban: 0.3.2
@@ -487,6 +488,12 @@ packages:
       node: '>= 0.4.0'
     resolution:
       integrity: sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==
+  /hastebin-gen/2.0.5:
+    dependencies:
+      node-fetch: 2.6.0
+    dev: false
+    resolution:
+      integrity: sha512-At1LaKtcqh2jiP8xfE2sDGT9IshIki6FqsgLwn2y7FzAvlFJRtpUsSPh3yWjWIQIvxi/GPF07IBqSI8WhPL/gQ==
   /http-errors/1.6.3:
     dependencies:
       depd: 1.1.2
@@ -1134,6 +1141,7 @@ specifiers:
   discord.js: ^11.5.1
   express: ^4.16.4
   fs: ^0.0.2
+  hastebin-gen: ^2.0.5
   quick.db: ^6.3.2
   teamtrees-api: ^1.2.0
   urban: ^0.3.2
