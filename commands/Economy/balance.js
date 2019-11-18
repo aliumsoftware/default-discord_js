@@ -23,17 +23,17 @@ let usrBank = await db.fetch(`usrBank_${m.id}`);
   let embed = new RichEmbed()
     .setColor(orange)
     .setAuthor(`${message.author.tag}'s Balance`, message.author.displayAvatarURL)
-    .setThumbnail(client.user.displayAvatarURL)
-    .addField('[**__Your Wallet:__**]', `\`${usrBalance} ₪ Dollars\``, true)
-    .addField('[**__Your Bank:__**]', `\`${usrBank} ₪ Dollars\``, true)
+    //.setThumbnail(client.user.displayAvatarURL)
+    .addField('[**__Your Wallet:__**]', `**${usrBalance} ₪** `, true)
+    .addField('[**__Your Bank:__**]', `**${usrBank} ₪**`, true)
   return message.channel.send(embed)
   } else {
   let embed2 = new RichEmbed()
     .setColor(orange)
     .setAuthor(`${m.user.tag}'s Balance`, m.user.displayAvatarURL)
-    .setThumbnail(client.user.displayAvatarURL)
-    .addField('[**__Their Wallet:__**]', `\`${usrBalance} ₪ Dollars\``, true)
-    .addField('[**__Their Bank:__**]', `\`${usrBank} ₪ Dollars\``, true)
+    //.setThumbnail(client.user.displayAvatarURL)
+    .addField('[**__Their Wallet:__**]', `**${usrBalance} ₪** `, true)
+    .addField('[**__Their Bank:__**]', `**${usrBank} ₪**`, true)
   return message.channel.send(embed2)
       }
     }
