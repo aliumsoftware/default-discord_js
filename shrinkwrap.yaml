@@ -5,6 +5,7 @@ dependencies:
   express: 4.16.4
   fs: 0.0.2
   hastebin-gen: 2.0.5
+  parse-ms: 2.1.0
   quick.db: 6.3.2
   teamtrees-api: 1.2.0
   urban: 0.3.2
@@ -755,6 +756,12 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-IPEzZIGwg811M3mSoWlxqi2QaUc=
+  /parse-ms/2.1.0:
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-kHt7kzLoS9VBZfUsiKjv43mr91ea+U05EyKkEtqp7vNbHxmaVuEqN7XxeEVnGrMtYOAxGrDElSi96K7EgO1zCA==
   /parseqs/0.0.5:
     dependencies:
       better-assert: 1.0.2
@@ -1142,6 +1149,7 @@ specifiers:
   express: ^4.16.4
   fs: ^0.0.2
   hastebin-gen: ^2.0.5
+  parse-ms: ^2.0.0
   quick.db: ^6.3.2
   teamtrees-api: ^1.2.0
   urban: ^0.3.2

@@ -16,7 +16,8 @@
     "teamtrees-api": "^1.2.0",
     "urban": "^0.3.2",
     "quick.db": "^6.3.2",
-    "hastebin-gen": "^2.0.5"
+    "hastebin-gen": "^2.0.5",
+    "parse-ms": "^2.0.0"
   },
   "engines": {
     "node": "8.x"
