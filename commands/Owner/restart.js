@@ -21,9 +21,11 @@ const { orange, red } = require("../../colors.json");
           let m = await message.channel.send(embed).then(m => {
             process.exit();
             client.login(process.env.DTOKEN).then(() => {
-            embed.setDescription('Bot has restarted.');
+              let e = new RichEmbed()
+                .setColor(orange)
+                .addField('[**__Success__**]', `Bot restarted successfully.`)
             m.delete()
-              
+              return message.channel.send(e)
             })
           })
         } catch(e) {
