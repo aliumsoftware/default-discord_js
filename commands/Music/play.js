@@ -36,7 +36,7 @@ const { blue, red } = require("../../colors.json")
         requester: message.author.tag,
         url: args[0],
         annouceChannel: message.channel.id,
-        thumbnail: info.thumbnail_url
+        thumbnail: info.image
       });
     if(!data.dispatcher) play(client, ops, data);
     else {
