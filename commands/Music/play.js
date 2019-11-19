@@ -82,7 +82,5 @@ async function end(client, ops, dispatcher, data) {
     play(client, ops, fetched)
   } else {
     ops.active.delete(dispatcher.guildID)
-    let vc = client.guild.me.voiceChannel;
-    if(vc) vc.leave()
   }
 }
