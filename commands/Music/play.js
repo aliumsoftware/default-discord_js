@@ -6,7 +6,7 @@ const { blue, red } = require("../../colors.json")
     config: {
     name: "play",
     aliases: ["p", "youtube", "yt"],
-    usage: ["-play (url | song name)"],
+    usage: ["^play (url | song name)"],
     description: "Plays the music in a voice channel.",
     category: "Music",
     accessableby: 'Users'
@@ -35,13 +35,15 @@ const { blue, red } = require("../../colors.json")
         songTitle: info.title,
         requester: message.author.tag,
         url: args[0],
-        annouceChannel: message.channel.id 
+        annouceChannel: message.channel.id,
+        thumbnail: info.thumbnail_url
       });
     if(!data.dispatcher) play(client, ops, data);
     else {
       let embed = new RichEmbed()
         .setColor(blue)
         .setDescription(`Song added to queue: **${info.title}**`)
+        .setThumbnail(data.queue[0].thumbnail)
         .setFooter(`Requester: ${message.author.tag}`)
     //message.channel.send(`Song added: ${info.title} | Requester: ${message.author.tag}`)
       message.channel.send(embed)
