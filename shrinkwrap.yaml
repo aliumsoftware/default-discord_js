@@ -1,11 +1,14 @@
 dependencies:
   ascii-table: 0.0.9
   common-tags: 1.8.0
+  cpu-stat: 2.0.1
   discord.js: 11.5.1
+  envinfo: 7.4.0
   express: 4.16.4
   fs: 0.0.2
   hastebin-gen: 2.0.5
   node-opus: 0.3.3
+  os: 0.1.1
   parse-ms: 2.1.0
   quick.db: 6.3.2
   teamtrees-api: 1.2.0
@@ -209,6 +212,10 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-+Hp8fLp57wnUSt0tY0tHEXh4voZRDnoIrZPqlo3DPiI4y9lwg/jqx+1Om94/W6ZaPDOUbnjOt/99w66zk+l1Xg==
+  /cpu-stat/2.0.1:
+    dev: false
+    resolution:
+      integrity: sha1-UB6NbdLUTO9dhCk5w40YIsB4/Kw=
   /debug/2.6.9:
     dependencies:
       ms: 2.0.0
@@ -312,6 +319,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-XCyYVWzcHnK5cMz7G4VTu2W7zJS7SM1QkcelghyIk/FmobWBtXE7fwhBusEKvCSqc3bMh8fNFMlUkCKTFRxH2w==
+  /envinfo/7.4.0:
+    dev: false
+    engines:
+      node: '>=4'
+    hasBin: true
+    resolution:
+      integrity: sha512-FdDfnWnCVjxTTpWE3d6Jgh5JDIA3Cw7LCgpM/pI7kK1ORkjaqI2r6NqQ+ln2j0dfpgxY00AWieSvtkiZQKIItA==
   /es-abstract/1.16.0:
     dependencies:
       es-to-primitive: 1.2.1
@@ -811,6 +825,10 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-IPEzZIGwg811M3mSoWlxqi2QaUc=
+  /os/0.1.1:
+    dev: false
+    resolution:
+      integrity: sha1-IIhF6J4ZOtTZcUdLk5R3NqVtE/M=
   /parse-ms/2.1.0:
     dev: false
     engines:
@@ -1233,11 +1251,14 @@ shrinkwrapVersion: 3
 specifiers:
   ascii-table: ^0.0.9
   common-tags: ^1.8.0
+  cpu-stat: ^2.0.1
   discord.js: ^11.5.1
+  envinfo: ^7.4.0
   express: ^4.16.4
   fs: ^0.0.2
   hastebin-gen: ^2.0.5
   node-opus: ^0.3.2
+  os: ^0.1.1
   parse-ms: ^2.0.0
   quick.db: ^6.3.2
   teamtrees-api: ^1.2.0
