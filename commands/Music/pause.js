@@ -1,5 +1,5 @@
 const { RichEmbed } = require("discord.js");
-const { blue, red } = require("../../colors.json")
+const { orange, red } = require("../../colors.json")
 
   module.exports = {
     config: {
@@ -14,27 +14,27 @@ const { blue, red } = require("../../colors.json")
   run: async (client, message, args, ops) => {
   let fetched = ops.active.get(message.guild.id)
     if(!fetched) {
-      let notPaused = new RichEmbed()
-        .setColor(red)
-        .setDescription(`There is currently no queue running.`)
- return message.chanel.send(notPaused)
+      let embed = new RichEmbed()
+      .setColor(red)
+      .setDescription(`${client.emojis.get('645467660229935135')} There is currently no queue running for this guild.`)
+    return message.channel.send(embed)
       }
     if(message.member.voiceChannel !== message.guild.me.voiceChannel) {
-      let no = new RichEmbed()
+      let embed = new RichEmbed()
         .setColor(red)
-        .setDescription(`Connect to the same voice channel as me.`)
-      return message.channel.send(no)
+        .setDescription(`${client.emojis.get('645467660229935135')} Connect to the same voicechannel as me to use this command.`)
+      return message.channel.send(embed)
     }
     if(fetched.dispatcher.paused) {
       let already = new RichEmbed()
-        .setColor(blue)
-        .setDescription(`The music is already paused.`)
+        .setColor(orange)
+        .setDescription(`${client.emojis.get('645467660229935135')} The music is already paused.`)
       return message.channel.send(already)
     }
     fetched.dispatcher.pause()
     let pausedS = new RichEmbed()
-      .setColor(blue)
-      .setDescription(`Music has been paused.`)
+      .setColor(orange)
+      .setDescription(`${client.emojis.get('645467627048665099')} Music has been paused.`)
     return message.channel.send(pausedS)
     }
   }
