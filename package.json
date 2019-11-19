@@ -22,7 +22,8 @@
     "node-opus": "^0.3.2",
     "cpu-stat": "^2.0.1",
     "envinfo": "^7.4.0",
-    "os": "^0.1.1"
+    "os": "^0.1.1",
+    "node-fetch": "^2.6.0"
   },
   "engines": {
     "node": "8.x"

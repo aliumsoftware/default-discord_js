@@ -7,6 +7,7 @@ dependencies:
   express: 4.16.4
   fs: 0.0.2
   hastebin-gen: 2.0.5
+  node-fetch: 2.6.0
   node-opus: 0.3.3
   os: 0.1.1
   parse-ms: 2.1.0
@@ -1257,6 +1258,7 @@ specifiers:
   express: ^4.16.4
   fs: ^0.0.2
   hastebin-gen: ^2.0.5
+  node-fetch: ^2.6.0
   node-opus: ^0.3.2
   os: ^0.1.1
   parse-ms: ^2.0.0
