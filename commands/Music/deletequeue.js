@@ -35,9 +35,17 @@ let fetched = ops.active.get(message.guild.id);
       try {
         let embed = new RichEmbed()
           .setColor(orange)
-          .setDescription(`Queue has been cleared. I will be leaving now.`)
+          .setDescription(`${client.emojis.get('645467627048665099')} Queue has been cleared. I will be leaving now.`)
+        fetched.dispatcher.emit('end')
+        ops.active.delete(message.guild.id)
+//        fetched.dispatcher.emit('end')
+        message.guild.me.voiceChannel.leave()
+        return message.channel.send(embed)
       } catch(e) {
-        
+        let embed = new RichEmbed()
+          .setColor(red)
+          .setDescription(`${client.emojis.get('645467660229935135')} Something went wrong!`)
+        return message.channel.send(embed)
       }
     }
   }

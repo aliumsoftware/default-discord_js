@@ -1,6 +1,6 @@
 const yt = require("ytdl-core")
 const { RichEmbed } = require("discord.js")
-const { blue, red } = require("../../colors.json")
+const { orange, red } = require("../../colors.json")
 
   module.exports = {
     config: {
@@ -41,8 +41,9 @@ const { blue, red } = require("../../colors.json")
     if(!data.dispatcher) play(client, ops, data);
     else {
       let embed = new RichEmbed()
-        .setColor(blue)
-        .setDescription(`Song added to queue: **${info.title}**`)
+        .setColor(orange)
+        .addField('[**__Song added to queue:__**]', `\`${info.title}\``)
+        //.setDescription(`Song added to queue: **${info.title}**`)
         .setThumbnail(data.queue[0].thumbnail)
         .setFooter(`Requester: ${message.author.tag}`)
     //message.channel.send(`Song added: ${info.title} | Requester: ${message.author.tag}`)
@@ -54,11 +55,13 @@ const { blue, red } = require("../../colors.json")
 
 async function play(client, ops, data) {
   let nowPlaying = new RichEmbed()
-    .setTitle(`**Now Playing:**`)
-    .setColor(blue)
+    .setTitle(`${client.emojis.get('645467627048665099')} **Sucess!**`)
+    .setColor(orange)
     .setThumbnail(data.queue[0].thumbnail)
-    .setDescription(`${data.queue[0].songTitle}`)
-    .setFooter(`Requester: ${data.queue[0].requester}`)
+    .addField('[**__Now Playing:__**]', `\`${data.queue[0].songTitle}\``, true)
+    .addField('[**__Song Requester:__**]', `\`${data.queue[0].requester}\``, true)
+    //.setDescription(`${data.queue[0].songTitle}`)
+    //.setFooter(`Requester: ${data.queue[0].requester}`)
   client.channels.get(data.queue[0].annouceChannel).send(nowPlaying)
   //client.channels.get(data.queue[0].annouceChannel).send(`Now playing: ${data.queue[0].songTitle} | Requester: ${data.queue[0].requester}`)
   data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, { filer: 'audioonly'}));
