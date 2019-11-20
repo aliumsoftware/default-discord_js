@@ -23,8 +23,10 @@ const { orange, red } = require("../../colors.json")
     if(!args[0]) return message.channel.send(connectionInvaild)
   let validate = await yt.validateURL(args[0])
     if(!validate) {
-            return;
-    
+if(message.author !== message.author) return;
+      let commandFile = require("./search.js")
+      commandFile.run(client, message, args, ops) 
+        
     }
     let info = await yt.getInfo(args[0])
   let data = ops.active.get(message.guild.id) || {};
