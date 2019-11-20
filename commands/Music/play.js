@@ -66,7 +66,12 @@ async function play(client, ops, data) {
   //client.channels.get(data.queue[0].annouceChannel).send(`Now playing: ${data.queue[0].songTitle} | Requester: ${data.queue[0].requester}`)
   data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, { filer: 'audioonly'}));
   data.dispatcher.guildID = data.guildID;
-  
+  if(data.dispatcher.looped) data.queue.push(data.queue.shift())
+  else data.queue.shift()
+  play(client, ops, data)
+    /*if (serverQueue.loop === true) serverQueue.songs.push(serverQueue.songs.shift());
+else serverQueue.songs.shift();
+play(guild, serverQueue.songs[0]); */
   data.dispatcher.on('end', async function() {
     end(client, ops, this, data);
   })
