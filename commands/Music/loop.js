@@ -3,10 +3,10 @@ const { orange, red } = require("../../colors.json")
 
   module.exports = {
     config: {
-    name: "looop",
+    name: "loop",
     aliases: ["l", "repeat"],
-    usage: ["^resume"],
-    description: "Resumes the music",
+    usage: ["^loop"],
+    description: "Loops the music",
     category: "Music",
     accessableby: 'Users'
     },
@@ -25,13 +25,13 @@ const { orange, red } = require("../../colors.json")
         .setDescription(`${client.emojis.get('645467660229935135')} Connect to the same voicechannel as me to use this command.`)
       return message.channel.send(embed)
     }
-    if(!fetched.dispatcher.looped) {
+    if(fetched.dispatcher.looped) {
       let already = new RichEmbed()
         .setColor(orange)
-        .setDescription(`${client.emojis.get('645467660229935135')} The music is already playing.`)
+        .setDescription(`${client.emojis.get('645467660229935135')} The music is already looped.`)
       return message.channel.send(already)
     }
-    fetched.dispatcher.loop()
+    fetched.dispatcher.loop(fetched.queue[0].songTitle)
     let pausedS = new RichEmbed()
       .setColor(orange)
       .setDescription(`${client.emojis.get('645467627048665099')} Music has been looped.`)

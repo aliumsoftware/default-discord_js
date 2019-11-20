@@ -4,7 +4,12 @@ const { orange } = require("../../colors.json")
  
   module.exports = {
     config: {
-    name: "search",
+      name: "search",
+      aliases: ['find'],
+      usage: '^play (song name)',
+      description: 'Searching for the play command.',
+      category: 'Music',
+      accessableby: 'Users'      
     },
     
   run: async (client, message, args, ops) => {
