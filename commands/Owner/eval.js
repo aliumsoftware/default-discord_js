@@ -12,7 +12,7 @@ const { inspect } = require("util");
       accessableby: 'Bot Owner'
     },
     
-  run: async (client, message, args) => {
+  run: async (client, message, args, ops) => {
       if(message.author.id === '535585397435006987') {
         try {
         let toEv = args.join(" ")

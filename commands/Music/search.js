@@ -1,5 +1,6 @@
 const s = require("yt-search")
 const { RichEmbed } = require("discord.js")
+const { orange } = require("../../colors.json")
  
   module.exports = {
     config: {
@@ -16,10 +17,14 @@ const { RichEmbed } = require("discord.js")
           resp += `[${parseInt(i)+1}] \`${videos[i].title}\`\n`
         }
     
-        resp += `\nChoose a number bewtween 1-${videos.length}`
+          let embed = new RichEmbed()
+            .setTitle(`🔎 Search results for: **${args.join(' ')}**`)
+            .setDescription(resp)
+            .setFooter('Pick a number between 1-10. This will cancel in 20 seconds.')
+        //resp += `\nChoose a number bewtween 1-${videos.length}`
         message.channel.send(resp)
     const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0;
-    const collector = message.channel.createMessageCollector(filter);
+    const collector = message.channel.createMessageCollector(filter, { time: 20000});
     
     collector.videos = videos
     collector.on('collect', async function(m) {
@@ -28,6 +33,10 @@ const { RichEmbed } = require("discord.js")
       
       
         })
+      
+      collector.on('end', async () => {
+        return message.channel.send('Time has ended. Muisc collector stopped')
+      })
       }) 
     }
   }
