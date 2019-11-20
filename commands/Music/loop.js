@@ -31,7 +31,7 @@ const { orange, red } = require("../../colors.json")
         .setDescription(`${client.emojis.get('645467660229935135')} The music is already looped.`)
       return message.channel.send(already)
     }
-    fetched.dispatcher.loop(fetched.queue[0].songTitle)
+    fetched.dispatcher.loop
     let pausedS = new RichEmbed()
       .setColor(orange)
       .setDescription(`${client.emojis.get('645467627048665099')} Music has been looped.`)
