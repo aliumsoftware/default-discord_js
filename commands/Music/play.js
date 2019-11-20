@@ -38,7 +38,6 @@ if(message.author !== message.author) return;
         requester: message.author.tag,
         url: args[0],
         annouceChannel: message.channel.id,
-        thumbnail: info.thumbnail_url
       });
     if(!data.dispatcher) play(client, ops, data);
     else {
@@ -59,7 +58,7 @@ async function play(client, ops, data) {
   let nowPlaying = new RichEmbed()
     .setTitle(`${client.emojis.get('645467627048665099')} **Sucess!**`)
     .setColor(orange)
-    .setThumbnail(data.queue[0].thumbnail)
+    //.setThumbnail(data.queue[0].thumbnail)
     .addField('[**__Now Playing:__**]', `\`${data.queue[0].songTitle}\``, true)
     .addField('[**__Song Requester:__**]', `\`${data.queue[0].requester}\``, true)
     //.setDescription(`${data.queue[0].songTitle}`)
@@ -68,9 +67,6 @@ async function play(client, ops, data) {
   //client.channels.get(data.queue[0].annouceChannel).send(`Now playing: ${data.queue[0].songTitle} | Requester: ${data.queue[0].requester}`)
   data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, { filer: 'audioonly'}));
   data.dispatcher.guildID = data.guildID;
-  if(data.dispatcher.looped) data.queue.push(data.queue.shift())
-  else data.queue.shift()
-  play(client, ops, data)
     /*if (serverQueue.loop === true) serverQueue.songs.push(serverQueue.songs.shift());
 else serverQueue.songs.shift();
 play(guild, serverQueue.songs[0]); */

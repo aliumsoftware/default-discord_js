@@ -19,10 +19,12 @@ const { orange } = require("../../colors.json")
     
           let embed = new RichEmbed()
             .setTitle(`🔎 Search results for: **${args.join(' ')}**`)
+            .setColor(orange)
+            .setThumbnail(client.user.displayAvatarURL)
             .setDescription(resp)
             .setFooter('Pick a number between 1-10. This will cancel in 20 seconds.')
         //resp += `\nChoose a number bewtween 1-${videos.length}`
-        message.channel.send(resp)
+        message.channel.send(embed)
     const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0;
     const collector = message.channel.createMessageCollector(filter, { time: 20000});
     

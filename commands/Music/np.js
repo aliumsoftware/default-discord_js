@@ -23,7 +23,7 @@ let fetched = ops.active.get(message.guild.id);
 
     let embed = new RichEmbed()
       .setColor(orange)
-      .setThumbnail(queue[0].thumbnail)
+//      .setThumbnail(queue[0].thumbnail)
       .addField('[**__Now Playing:__**]', `\`${queue[0].songTitle}\``, true)
       .addField('[**__Requester:__**]', `\`${queue[0].requester}\``, true)
     return message.channel.send(embed)
