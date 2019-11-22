@@ -27,12 +27,20 @@ let embed = new RichEmbed()
     return message.channel.send(embed)
   };
     
-    mc(args[0], parseInt(args[1]), (error, reponse) =>{
+    mc(args[0], parseInt(args[1]), (error, res) =>{
+      if(error) throw error;
       let fEmbed = new RichEmbed()
         .setColor(orange)
-        .setThumbnail
+        //.setThumbnail(res.favicon)
+        .setTitle(`**${res.host}'s Server Information**`)
+        .addField('[**__Server IP__**]', res.host, true)
+        .addField('[**__Port__**]', res.port, true)
+        .addField('[**__Protocol Version__**]', res.protocolVersion, true)
+        .addField('[**__Version__**]', res.version, true)
+        .addField('[**__Players Online__**],', res.onlinePlayers, true)
+        .addField('[**__Max Players__**]', res.maxPlayers, true)
       
-      
+      return message.channel.send(fEmbed)
       })
     }
   }
