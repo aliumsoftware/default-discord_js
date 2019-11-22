@@ -7,6 +7,7 @@ dependencies:
   express: 4.16.4
   fs: 0.0.2
   hastebin-gen: 2.0.5
+  minecraft-server-util: 1.0.2
   node-fetch: 2.6.0
   node-opus: 0.3.3
   os: 0.1.1
@@ -1071,6 +1072,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==
+  /minecraft-server-util/1.0.2:
+    dev: false
+    resolution:
+      integrity: sha512-Uus6M6RhMQsJRi9FrfUzpSrpRL8JhgD0wBS1HuTCuoZZ4sWHcwwqdNkGW+ocfttb5WX4D2+/Z7TBTt1ZlGJuJQ==
   /miniget/1.6.1:
     dev: false
     engines:
@@ -1703,6 +1708,7 @@ specifiers:
   express: ^4.16.4
   fs: ^0.0.2
   hastebin-gen: ^2.0.5
+  minecraft-server-util: ^1.0.2
   node-fetch: ^2.6.0
   node-opus: ^0.3.2
   os: ^0.1.1
