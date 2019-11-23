@@ -13,22 +13,15 @@ const db = require('quick.db');
     },
     
   run: async (client, message, args) => {
-let usrC = await db.fetch(`usrCash_${message.author.id}`, { sort: '.data'});
-    if(usrC === null) usrC = 0;
-let content = "";
+let money = await db.startsWith(`usrCash_${message.author.id}`, { sort: 'data'})
+let c = "";
     
-    for ( let i = 0; i < usrC.length; i++) {
-    let usr = client.users.get(usrC[i].ID[2])
-    
-    content += `${parseInt(i)+1} **${usr}** | ${usrC[i].data}\n`
+    for ( let i = 0; i < money.length; i++) {
+let usr = client.users.get(money[i].).username[2]
+      c += `${i+1}) ${usr} ~ ${money[i].data}\n`
     
       }
-    
-    let embed = new RichEmbed()
-      .setColor(orange)
-      .setAuthor(`Guild | ${message.guild.name} Leaderboard`, message.guild.iconURL)
-      .setDescription(content)
-    message.channel.send(embed)
+    message.channel.send(c)
     }
   }
 
