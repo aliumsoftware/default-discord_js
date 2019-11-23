@@ -1,10 +1,15 @@
 const prefix = "^";
 const active = new Map()
+const db = require('quick.db');
 
   module.exports = async (client, message) => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
-      if(message.channel.type === 'dm') return;
     const cmd = args.shift().toLowerCase();
+      if(message.channel.type === 'dm') return;
+    let fetched = await db.fetch(`prefix_${message.guild.id}`)
+      if(fetched === null) prefix = '^'
+        else prefix = fetched
+      if(message.isMemberMentioned(client.user)) return message.reply(`The guild prefix is: \`${fetched}\`. You can change it with the prefix command.`)
       if(!message.content.startsWith(prefix)) return;
       if(message.author.bot) return;
     let command = client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
