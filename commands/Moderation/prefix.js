@@ -18,23 +18,20 @@ const db = require('quick.db');
     
     let embed = new RichEmbed()
       .setColor(red)
-      .setDescription(`${error} - You don't have the vaild permissions to use this command!`)
-          if(!message.member.hasPermission(['ADMINISTRATOR', 'MANAGE_GUILD']) || !msg.guild.owner) return msg.channel.send(embed);
-
+      .setDescription(`${error} You don't have the vaild permissions to use this command!`)
+  if(!message.member.hasPermission(['ADMINISTRATOR', 'MANAGE_GUILD']) || !message.guild.owner) return message.channel.send(embed);
+  if(!args[0]) {
+    const e = new RichEmbed()
+      .setColor(red)
+      .setDescription(`${error} You need to supply and argument for me to change the prefix too.`)
+    return message.channel.send(e);
+  };
+    
+    db.set(`prefix_${message.guild.id}`, args.join(' ')).then(s => {
+      let ok = new RichEmbed()
+        .setColor(orange)
+        .setDescription(`${check} Prefix was successfully set to: \`${s}\`.\nMention me when you need to know the prefix if you forget it..`)
+      return message.channel.send(ok)
+      })
     }
   }
-
-/* if(command === 'prefix') {
-        let embed = new RichEmbed()
-          .setColor("RED")
-          .setDescription('❌ - You\'re not allowed to execute this command.')
-        if(!msg.member.hasPermission(['ADMINISTRATOR', 'MANAGE_GUILD']) || !msg.guild.owner) return msg.channel.send(embed);
-        if(!args[0]) return msg.channel.send('❌ - Supply an argument.')
-        
-        db.set(`prefix_${msg.guild.id}`, args.join(' ')).then(i => {
-          let e = new RichEmbed()
-            .setColor("BLUE")
-            .setDescription(`✅ - Prefix was set sucessfully to: \`${i}\``)
-          msg.channel.send(e)
-        })
-      }*/
