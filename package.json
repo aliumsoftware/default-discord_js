@@ -25,7 +25,8 @@
     "os": "^0.1.1",
     "node-fetch": "^2.6.0",
     "yt-search": "^0.4.1",
-    "minecraft-server-util": "^1.0.2"
+    "minecraft-server-util": "^1.0.2",
+    "simple-fortnite-api": "^0.1.8"
   },
   "engines": {
     "node": "8.x"
