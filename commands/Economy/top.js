@@ -13,16 +13,16 @@ const { orange } = require('../../colors.json');
     },
     
   run: async (client, message, args) => {
-let usrAmt = db.startsWith(`usrCash_${message.author.id}`, { sort: '.data'})
-let content = '';
+let usrAmt = await db.startsWith(`usrCash_${message.author.id}`, { sort: '.data'})
+let content = ``;
     
     for ( let i = 0; i < usrAmt.length; i++) {
-      let usr = client.users.get(usrAmt[i].ID.split('_')[2]).username
+      let usr = client.users.get(usrAmt[i].ID)
       
       content += `${i+1}. ${usr} ~ ${usrAmt[i].data}\n`
       }
     
-    return message.channel.send(content)
+    return message.channel.send(`leaderboard and shit\n\n${content}`)
     }
   }
 
