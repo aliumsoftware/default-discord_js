@@ -18,9 +18,9 @@ let usrC = await db.fetch(`usrCash_${message.author.id}`, { sort: '.data'});
 let content = "";
     
     for ( let i = 0; i < usrC.length; i++) {
-    let usr = client.users.get(usrC[i]).username
+    let usr = client.users.get(usrC[i].ID[2])
     
-    content += `${i+1}) **${usr}** | ${usrC[i].data}\n`
+    content += `${parseInt(i)+1} **${usr}** | ${usrC[i].data}\n`
     
       }
     
