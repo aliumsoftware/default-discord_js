@@ -12,6 +12,26 @@ const { orange, red } = require('../../colors.json');
     },
     
   run: async (client, message, args) => {
+  let error = client.emojis.get('645467660229935135');
+  const embed = new RichEmbed()
+  
+  if(!message.member.hasPermission(['MANAGE_MESSAGES', 'ADMINISTRATOR']) || !message.guild.owner) {
+    embed.setColor(red)
+    embed.setDescription(`${error} You do not have the correct permissions to use this command!`)
+    return message.channel.send(embed)
+  }
     
+  let text = args.slice(0).join(' ');
+    
+  if(!args[0]) {
+    embed.setColor(red)
+    embed.setDescription(`${error} What would you like me to say? Usage: \`^say (whatever you want the bot to say)\``)
+    return message.channel.send(embed);
+      };
+    message.delete().catch()
+    
+    embed.setColor(orange)
+    embed.setDescription(text)
+    return message.channel.send(embed)
     }
   }
