@@ -1,6 +1,7 @@
 
 const { RichEmbed } = require("discord.js");
 const { promptMessage } = require("../../functions.js");
+const { orange } = require('../../colors.json');
 
 const chooseArr = ["🗻", "📰", "✂"];
 
@@ -16,10 +17,10 @@ const chooseArr = ["🗻", "📰", "✂"];
     
       run: async (client, message, args) => {
           const embed = new RichEmbed()
-              .setColor("#ffffff")
-              .setFooter(message.guild.me.displayName, client.user.displayAvatarURL)
+              .setColor(orange)
+             // .setFooter(message.guild.me.displayName, client.user.displayAvatarURL)
               .setDescription("Add a reaction to one of these emojis to play the game!")
-              .setTimestamp();
+             // .setTimestamp();
 
           const m = await message.channel.send(embed);
           const reacted = await promptMessage(m, message.author, 30, chooseArr);
@@ -30,9 +31,10 @@ const chooseArr = ["🗻", "📰", "✂"];
           await m.clearReactions();
 
           embed
-              .setDescription("")
-              .addField('[**__You\'ve Chosen:__**]', reacted)
-              .addField('[**__I\]')
+              .setDescription('')
+              .setTitle(result)
+              .addField('[**__You\'ve Chosen:__**]', reacted, true)
+              .addField('[**__I\'ve Chosen:__**]', botChoice, true)
               //.addField(result, `${reacted} vs ${botChoice}`);
 
           m.edit(embed);
