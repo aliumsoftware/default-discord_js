@@ -1,36 +1,42 @@
-const fetch = require('node-fetch');
-const hastebin = require("hastebin-gen");
-const { RichEmbed } = require("discord.js");
-const { orange } = require("../../colors.json")
+const hb = require('hastebin-gen');
+const { RichEmbed } = require('discord.js');
+const { orange, red } = require('../../colors.json');
 
   module.exports = {
-      config: {
-      name: "hastebin",
-      aliases: ["hb", "codebin"],
-      description: "Copy and paste code and get code from others",
-      category: "Miscellaneous",
-      usage: ["^hastebin (code/text)"],
+    config: {
+      name: 'hastebin',
+      aliases: ['hb', 'haste'],
+      usage: '^hastebin (text/code)',
+      description: 'Creates a hastebin without you even having to go to the web!',
+      category: 'Miscellaneous',
       accessableby: 'Users'
     },
-
-    run: async (bot, message, args) => {
-    let text = args.slice(0).join(" ")
-    let type = args.slice(1).join(" ")
-      if(!args[0]) return message.channel.send(`What would you like to make a hastebin out of? Usage: f.hastebin (code/text)`)
-    if(!message.guild.me.hasPermission(["ADMINISTRATOR", "MANAGE_MESSAGES"])) return message.channel.send(`I need vaild permissions to delete the command after you executed it.`)
-        try {
-          message.delete().catch()
-      hastebin(text).then(r => {
-        let hEmbed = new RichEmbed()
-          .setColor(orange)
-          .setDescription(`Here is ${message.author.tag}'s code:
-
-          **[Hastebin Code Link](${r})**`)
-        message.channel.send(hEmbed)      
-          })
-        } catch(e) {
-          console.log(e.message)
-          return message.channel.send(`Error Occured. Try again.`)
-        }
+  
+  run: async (client, message, args) => {
+let text = args.slice(0).join(' ');
+let type = args.slice(1).join(' ');
+const embed = new RichEmbed()
+    if(!args[0]) {
+      embed.setColor(red)
+      embed.setDescription('What would you like in a hastebin? Usage: `^hastebin (text/code)`')
+      return message.channel.send(embed);
+    };
+    
+  try {
+    message.delete().catch()
+    
+    hb(text).then(r => {
+    embed.setColor(orange)
+    embed.setAuthor(`${message.author.tag}'s Hastebin:`, message.author.displayAvatarURL)
+    embed.setDescription(`**[Hastebin Link](${r})**`)
+    embed.setTimestamp()
+    embed.setFooter(`Hastebin | `)
+      return message.channel.send(embed)
+    })
+  } catch(e) {
+    embed.setColor(red)
+    embed.setDescription(`Something went wrong! Try again later.`)
+    return message.channel.send(embed)
+      }
     }
   }
