@@ -45,15 +45,14 @@ const { stripIndents } = require("common-tags");
         }
         command = command.config
         embed.setAuthor(`${command.name.slice(0,1).toUpperCase() + command.name.slice(1)} Help`, client.user.displayAvatarURL)
-        embed.setThumbnail(client.user.displayAvatarURL)
         embed.setDescription(stripIndents `
 
-        [**__Command Name:__**] ${command.name}
-        [**__Command Aliases:__**] ${command.aliases ? command.aliases.join(", ") : 'No alias.'}
-        [**__Command Usage:__**] ${command.usage ? `\`${command.usage}\`` : 'No usage.'}
-        [**__Command Description:__**] ${command.description || 'No description.'}
-        [**__Command Category:__**] ${command.category || 'No category.'}
-        [**__Command Accessableby:__**] ${command.accessableby || 'No group provided.'}`)  
+        **Command Name**: ${command.name}
+        **Command Aliases**: ${command.aliases ? `\`${command.aliases.join(", ")}\`` : 'No alias.'}
+        **Command Usage**: ${command.usage ? `${command.usage}` : 'No usage.'}
+        **Command Description**: ${command.description || 'No description.'}
+        **Command Category**: ${command.category || 'No category.'}
+        **Command Accessableby**: ${command.accessableby || 'No group provided.'}`)  
         
         return message.channel.send(embed)
       }
