@@ -13,20 +13,36 @@ const db = require('quick.db');
     },
     
   run: async (client, message, args) => {
-let usrCash = db.startsWith(`usrCash_${message.author.id}`, { sort: '.data'});
-let content = '';
+let usrC = await db.fetch(`usrCash_${message.author.id}`, { sort: '.data'});
+    if(usrC === null) usrC = 0;
+let content = "";
     
-    for ( let i = 0; i < usrCash.length; i++) {
-    let usr = client.users.get(usrCash[i].ID.split('_')[2]).username
+    for ( let i = 0; i < usrC.length; i++) {
+    let usr = client.users.get(usrC[i])
     
-    content += `${i+1}. ${usr} | ${usrCash[i].data}\n`
+    content += `${i+1}) **${usr}** | ${usrC[i].data}\n`
     
       }
     
     let embed = new RichEmbed()
       .setColor(orange)
-      .setAuthor(`Guild | ${message.guild.id} Leaderboard`, message.guild.iconURL)
+      .setAuthor(`Guild | ${message.guild.name} Leaderboard`, message.guild.iconURL)
       .setDescription(content)
-    mes
+    message.channel.send(embed)
     }
   }
+
+
+/* 
+    if (args[0] == 'coins') {
+    let money = db.startsWith(`money_${message.guild.id}`, { sort: '.data'})
+    let content = "";
+
+    for (let i = 0; i < money.length; i++) {
+        let user = bot.users.get(money[i].ID.split('_')[2]).username
+
+      
+
+        content += `${i+1}. ${user} ~ ${money[i].data}\n`
+    
+      }*/
