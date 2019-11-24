@@ -6,10 +6,10 @@ module.exports = {
     config: {
         name: "meme",
         aliases: [],
-        usage: "<prefix>meme",
-        category: "Reddit",
+        usage: "^meme",
+        category: "Miscellaneous",
         description: "Sends a meme from the subreddit r/memes",
-        accessableby: "Everyone"
+        accessableby: "Users"
     },
 
     run: async (bot, message, args) => {

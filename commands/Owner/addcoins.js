@@ -22,12 +22,39 @@ const embed = new RichEmbed()
   let coins = await db.fetch(`usrCash_${usr.id}`)
     if(coins === null) coins = 0;
         
-      } catch(e) {
+        if(!usr || !args[0]) {
+          embed.setColor(red)
+          embed.setDescription(`${client.emojis.get("645467660229935135")} I need a user to add coins too.`)
+          
+          return message.channel.send(embed);
+        };
         
-      }
+        if(!args[1] || isNaN(args[1])) {
+          embed.setColor(red)
+          embed.setDescription(`${client.emojis.get("645467660229935135")} I need an amount to add to them. Or you didn't add a number.`)
+          
+          return message.channel.send(embed)
+        };
+        let bal = Number(args[1])
+        db.add(`usrCash_${usr.id}`, bal);
+        
+        embed.setColor(orange)
+        embed.setDescription(`${client.emojis.get('645467660229935135')} That user has been given: **${args[1]} ₪**`)
+        
+        return message.channel.send(embed);
+        
+      } catch(e) {
+        const embed = new RichEmbed()
+          .setColor(red)
+          .setDescription(`${client.emojis.get("645467660229935135")} Something went wrong! Here is the error:
+
+          \`${e.message}\``)
+        return message.channel.send(embed);
+      };
       
     } else {
-      
-      }
+      if(!message.guild.me.hasPermission(["ADMINISTRATOR", "ADD_REACTIONS"])) return;
+        return message.react(client.emojis.get("645467660229935135"));
+      };
     }
   }
