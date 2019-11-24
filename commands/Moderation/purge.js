@@ -19,9 +19,16 @@ const embed = new RichEmbed()
     embed.setDescription(`${client.emojis.get('645467660229935135')} I don't have the correct permissions to execute this command.`)
       return message.channel.send(embed);
       };
+  if(!args[0]) {
+    embed.setColor(red)
+    embed.setDescription(`${client.emojis.get('645467660229935135')} Please supply an amount of messages to delete.`)
+      return message.channel.send(embed);
+  };
+  const fetched = await message.channel.fetchMessages(args[0]);
+    message.channel.bulkDelete(fetched)
+    
+    embed.setColor(orange)
+    embed.setDescription(`${client.emojis.get('645467627048665099')} Deleted ${args[0]} ${args[0] === 1 ? 'message' : 'messages'}`)
+    return message.channel.send(embed).then(m => {m.delete(10000)})
     }
   }
-
-/* const fetched = await message.channel.fetchMessages(args[0])
-message.channel.bulkDelete(fetched)
-message.channel.send(`Deleted ${args[0]} ${args[0] === 1 ? "message" : "messages"}`)*/
