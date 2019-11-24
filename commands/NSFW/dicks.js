@@ -16,7 +16,7 @@ module.exports = {
           if(!message.channel.nsfw) return message.reply('Please run this in a `NSFW` channel.');
         let msg = await message.channel.send("Grabbing you some unholy things...")
         const { body } = await snekfetch
-            .get('https://www.reddit.com/r/dicks.json?sort=hot&t=month')
+            .get('https://www.reddit.com/r/dicks.json?sort=hot&t=week')
             .query({ limit: 800 });
         const allowed = message.channel.nsfw ? body.data.children : body.data.children.filter(post => !post.data.over_18);
         if (!allowed.length) return message.channel.send('Error: Try again later');
