@@ -18,19 +18,19 @@ const db = require('quick.db');
     let pr = await db.fetch(`prefix_${message.guild.id}`);
     let embed = new RichEmbed()
       .setColor(orange)
-      .setAuthor(`${client.user.tag} Help`, client.user.displayAvatarURL)
+      //.setAuthor(`${client.user.tag} Help`, client.user.displayAvatarURL)
     
       if(!args[0]) {
         const categories = readdirSync("./commands/")
         
-        embed.setFooter(`Command Size: ${client.commands.size} | A Fueled Development © Project`);
+        //embed.setFooter(`Command Size: ${client.commands.size} | A Fueled Development © Project`);
         
         categories.forEach(category => {
           const dir = client.commands.filter(c => c.config.category === category)
           const capitalise = category.slice(0, 1).toUpperCase() + category.slice(1)
             try {
               embed.setDescription(`Guild Prefix: \`${pr}\``)
-              embed.setThumbnail(client.user.displayAvatarURL)
+              //embed.setThumbnail(client.user.displayAvatarURL)
               embed.addField(`**❯ ${capitalise} [${dir.size}]:**`, dir.map(c => `\`${c.config.name}\``).join(":"))  
             } catch(e) {
               
@@ -48,10 +48,10 @@ const db = require('quick.db');
           message.channel.send(embed)
         }
         command = command.config
-        embed.setAuthor(`${command.name.slice(0,1).toUpperCase() + command.name.slice(1)} Help`, client.user.displayAvatarURL)
+        embed.setAuthor('')
+        embed.setFooter(`${command.name.slice(0,1).toUpperCase() + command.name.slice(1)} Command Help | Prefix: ${pr}`, client.user.displayAvatarURL)
         embed.setDescription(stripIndents `
 
-        Guild Prefix: \`${pr}\`
 
         **Command Name**: ${command.name}
         **Command Aliases**: ${command.aliases ? `\`${command.aliases.join(", ")}\`` : 'No alias.'}
