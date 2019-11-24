@@ -22,9 +22,23 @@ const embed = new RichEmbed()
   if(!message.member.hasPermission(['ADMINISTRATOR', 'KICK_MEMBERS']) || !message.guild.owner) return;
 let toKick = message.mentions.members.first() || message.guild.members.get(args[0]);
 let reason = args.slice(1).join(' ');
-  if(!toKick || !args[1]) {
-    
-  }
- 
+  if(!toKick || !args[0]) {
+    embed.setColor(red)
+    embed.setDescription(`${client.emojis.get('645467660229935135')} You must supply a user to kick. Usage: \`^kick (@user | id) [reason]\``)
+    return message.channel.send(embed);
+      };
+  if(toKick === message.author || message.guild.owner) return;
+  if(!reason) reason = 'No reason provided by moderator.';
+    let final = new RichEmbed()
+      .setColor(orange)
+      .setDescription(`You've been kicked from: \`${message.guild.name}\` for the reason of: \`${reason}\``)
+    toKick.send(final).catch().then(() => {
+      message.delete().catch();
+      toKick.kick().catch();
+      
+        embed.setColor(orange)
+        embed.setDescription(`${client.emojis.get('645467627048665099')} ${toKick.user.tag} has been kicked successfully from the guild.`)
+      message.channel.send(embed)
+      })
     }
   }
