@@ -1,6 +1,8 @@
 let prefix = "^";
 const active = new Map()
 const db = require('quick.db');
+const { orange } = require('../../colors.json');
+const { RichEmbed } = require('discord.js');
 
   module.exports = async (client, message) => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
@@ -9,6 +11,20 @@ const db = require('quick.db');
     let fetched = await db.fetch(`prefix_${message.guild.id}`)
       if(fetched === null) prefix = '^'
         else prefix = fetched
+    
+      let amt1 = Math.floor(Math.random() * 100) + 1;
+      let amt2 = Math.floor(Math.random() * 100) + 1;
+      let final = Math.floor(Math.random() * 10000) + 1;
+
+        if(amt1 === amt2) {
+          let embed = new RichEmbed()
+            .setColor(orange)
+            .setDescription(`**${message.author.tag}** Just earned **${final} ₪**.`)
+          db.add(`usrCash_${message.author.id}`, final);
+          return message.channel.send(embed).then(m => {m.delete(10000)})
+        }
+    
+    
     
       if(message.channel.type === 'dm') return;
       if(message.isMemberMentioned(client.user)) return message.reply(`The guild prefix is: \`${fetched || '^'}\`. You can change it with the prefix command.`)
