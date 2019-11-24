@@ -5,7 +5,7 @@ const { orange } = require("../../colors.json")
 module.exports = {
     config: {
         name: "nsfw",
-        aliases: [],
+        //aliases: [],
         usage: "^nsfw",
         category: "NSFW",
         description: "NSFW pictures from the r/nsfw subreddit.",

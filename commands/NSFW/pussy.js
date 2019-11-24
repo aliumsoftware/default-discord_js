@@ -4,9 +4,9 @@ const { orange } = require("../../colors.json")
 
 module.exports = {
     config: {
-        name: "porn",
+        name: "pussy",
        //aliases: [],
-        usage: "^porn",
+        usage: "^pussy",
         category: "NSFW",
         description: "NSFW pictures from the r/porn subreddit.",
         accessableby: "Users 18+"
@@ -16,7 +16,7 @@ module.exports = {
           if(!message.channel.nsfw) return message.reply('Please run this in a `NSFW` channel.');
         let msg = await message.channel.send("Grabbing you some unholy things...")
         const { body } = await snekfetch
-            .get('https://www.reddit.com/r/porn.json?sort=hot&t=month')
+            .get('https://www.reddit.com/r/pussy.json?sort=hot&t=month')
             .query({ limit: 800 });
         const allowed = message.channel.nsfw ? body.data.children : body.data.children.filter(post => !post.data.over_18);
         if (!allowed.length) return message.channel.send('Error: Try again later');
