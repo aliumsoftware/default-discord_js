@@ -1,6 +1,6 @@
 const yt = require("ytdl-core")
 const { RichEmbed } = require("discord.js")
-const { orange, red } = require("../../colors.json")
+const { orange, red, green } = require("../../colors.json")
 
   module.exports = {
     config: {
@@ -16,10 +16,10 @@ const { orange, red } = require("../../colors.json")
     let connectionInvaild = new RichEmbed()
       .setColor(red)
       .setDescription(`Send a vaild YouTube Link to play.`)
-    let voiceChannelInvaidl = new RichEmbed()
+    let voiceChannelInvalid = new RichEmbed()
       .setColor(red)
       .setDescription(`Join a voice channel before using this command.`)
-  if(!message.member.voiceChannel) return message.channel.send(voiceChannelInvaidl)
+  if(!message.member.voiceChannel) return message.channel.send(voiceChannelInvalid)
     if(!args[0]) return message.channel.send(connectionInvaild)
   let validate = await yt.validateURL(args[0])
     if(!validate) {
@@ -42,7 +42,7 @@ if(message.author !== message.author) return;
     if(!data.dispatcher) play(client, ops, data);
     else {
       let embed = new RichEmbed()
-        .setColor(orange)
+        .setColor(green)
         .addField('[**__Song added to queue:__**]', `\`${info.title}\``)
         //.setDescription(`Song added to queue: **${info.title}**`)
         .setThumbnail(data.queue[0].thumbnail)
@@ -56,7 +56,7 @@ if(message.author !== message.author) return;
 
 async function play(client, ops, data) {
   let nowPlaying = new RichEmbed()
-    .setTitle(`${client.emojis.get('645467627048665099')} **Sucess!**`)
+    .setTitle(`**Sucess!**`)
     .setColor(orange)
     //.setThumbnail(data.queue[0].thumbnail)
     .addField('[**__Now Playing:__**]', `\`${data.queue[0].songTitle}\``, true)
