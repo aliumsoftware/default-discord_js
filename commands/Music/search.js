@@ -30,8 +30,8 @@ const { orange } = require("../../colors.json")
             .setFooter('Pick a number between 1-10. This will cancel in 20 seconds.')
         //resp += `\nChoose a number bewtween 1-${videos.length}`
         message.channel.send(embed)
-    const filter = m => !isNaN(m.content) && m.content < videos.length && m.content > 0;
-//const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0;
+//    const filter = m => !isNaN(m.content) && m.content < videos.length && m.content > 0;
+const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0;
     const collector = message.channel.createMessageCollector(filter, { time: 20000});
     
     collector.videos = videos
