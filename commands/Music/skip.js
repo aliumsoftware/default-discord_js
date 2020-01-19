@@ -16,27 +16,27 @@ let fetched = ops.active.get(message.guild.id);
   if(!fetched) {
     let embed = new RichEmbed()
       .setColor(red)
-      .setDescription(`${client.emojis.get('645467660229935135')} There is currently no queue running for this guild.`)
+      .setDescription(`There is currently no queue running for this guild.`)
     return message.channel.send(embed)
       }
     let queue = fetched.queue;
     if(message.member.voiceChannel !== message.guild.me.voiceChannel) {
       let embed = new RichEmbed()
         .setColor(red)
-        .setDescription(`${client.emojis.get('645467660229935135')} Connect to the same voicechannel as me to use this command.`)
+        .setDescription(`Connect to the same voicechannel as me to use this command.`)
       return message.channel.send(embed)
       }
     
       try {
         let embed = new RichEmbed()
           .setColor(orange)
-          .setDescription(`${client.emojis.get('645467627048665099')} Skipped song sucessfully.`)
+          .setDescription(`Skipped song sucessfully.`)
         message.channel.send(embed)
         return fetched.dispatcher.emit('end')
       } catch(e) {
         let embed = new RichEmbed()
           .setColor(red)
-          .setDescription(`${client.emojis.get('645467660229935135')} Something went wrong! Try again.`)
+          .setDescription(`Something went wrong! Try again.`)
         return message.channel.send(embed)
       }
     }

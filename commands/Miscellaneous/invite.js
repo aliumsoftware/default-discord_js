@@ -3,9 +3,9 @@ const { red } = require("../../colors.json");
 
   module.exports = {
     config: {
-      name: 'lounge',
-      aliases: ['support'],
-      usage: '-lounge',
+      name: 'invite',
+      aliases: ['invite', 'bot'],
+      usage: '-invite',
       description: 'Displays the bot\'s latency',
       category: 'Miscellaneous',
       accessableby: 'Users'
@@ -13,12 +13,12 @@ const { red } = require("../../colors.json");
     
   run: async (client, message, args) => {
     message.channel.send(`Getting you the invite...`).then(m => {
-      let ping = 'https://invite.gg/aiden'
+      let ping = 'Please send a message to Aiden#6656 regarding it.'
       let embed = new RichEmbed()
         .setColor(red)
         .setThumbnail(client.user.displayAvatarURL)
-       // .setTitle(`Here you are!`)
-        .addField('[**__Invite:__**]', `\`${ping}\``, true)
+       // .setTitle(`Want Aiden's Bot in Your Server`)
+        .addField('[**__Invite This Bot:__**]', `\`${ping}\``, true)
 
         
       m.delete()

@@ -4,7 +4,7 @@ const { orange, red } = require("../../colors.json");
   module.exports = {
     config: {
       name: 'restart',
-      aliases: ['reboot', 'rebootprocess'],
+      aliases: ['reboot', 'rebootprocess', 'botstop'],
       usage: '^restart',
       description: 'Restarts the bot.',
       category: 'Owner',

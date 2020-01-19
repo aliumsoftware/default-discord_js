@@ -1,5 +1,5 @@
 const { RichEmbed } = require("discord.js");
-const { orange } = require("../../colors.json");
+const { red } = require("../../colors.json");
 const cpuStat = require("cpu-stat");
 const envinfo = require("envinfo");
 const os = require('os');
@@ -23,10 +23,10 @@ const os = require('os');
       }, { json: true})
       let { System } = JSON.parse(inf)
     let embed = new RichEmbed()
-      .setColor(orange)
+      .setColor(red)
       .setThumbnail(client.user.displayAvatarURL)
       .setTitle(`**Client Information**`)
-      .addField('[**__Theme:__**]', '`Orange v2.1 (#eb5931)`', true)
+      .addField('[**__Theme:__**]', '`Red v3.1 (#eb5931)`', true)
       .addField('[**__Client ID:__**]', `\`${client.user.id}\``, true).addField('[**__Version:__**]', '`v2`', true)
       .addField('[**__Memory Usage:__**]', `\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / 512MB\``, true)
       .addField('[**__CPU Usage:__**]', `\`${t}%\``, true).addField('[**__OS:__**]', `\`${System.OS}\``, true)

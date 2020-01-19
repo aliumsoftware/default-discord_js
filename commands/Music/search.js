@@ -14,12 +14,12 @@ const { orange } = require("../../colors.json")
     
   run: async (client, message, args, ops) => {
     s(args.join(' '), async function(err, res) {
-    if(err) return message.channel.send(`Something went wrong mate.`)
+    if(err) return message.channel.send(`Something went wrong mate. Talk to Aiden please.`)
       let videos = res.videos.slice(0,10)
       let resp = ``;
         
         for ( var i in videos ) {
-          resp += `[${parseInt(i)+1}] \`${videos[i].title}\`\n`
+          resp += `[${parseInt(i)+2}] \`${videos[i].title}\`\n`
         }
     
           let embed = new RichEmbed()
@@ -30,7 +30,8 @@ const { orange } = require("../../colors.json")
             .setFooter('Pick a number between 1-10. This will cancel in 20 seconds.')
         //resp += `\nChoose a number bewtween 1-${videos.length}`
         message.channel.send(embed)
-    const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0;
+    const filter = m => !isNaN(m.content) && m.content < videos.length && m.content > 0;
+//const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0;
     const collector = message.channel.createMessageCollector(filter, { time: 20000});
     
     collector.videos = videos
@@ -42,7 +43,7 @@ const { orange } = require("../../colors.json")
         })
       
       collector.on('end', async () => {
-        return message.channel.send('Time has ended. Muisc collector stopped')
+        return message.channel.send('Time has ended. Music collector stopped.')
       })
       }) 
     }
