@@ -13,8 +13,8 @@ const db = require('quick.db');
     },
     
   run: async (client, message, args) => {
-  let error = client.emojis.get('645467660229935135');
-  let check = client.emojis.get('645467627048665099');
+  let error = client.emojis.get(':x:');
+  let check = client.emojis.get(':check:');
     
     let embed = new RichEmbed()
       .setColor(red)

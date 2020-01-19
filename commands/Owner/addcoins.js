@@ -24,14 +24,14 @@ const embed = new RichEmbed()
         
         if(!usr || !args[0]) {
           embed.setColor(red)
-          embed.setDescription(`${client.emojis.get("645467660229935135")} I need a user to add coins too.`)
+          embed.setDescription(`${client.emojis.get(":x:")} I need a user to add coins too.`)
           
           return message.channel.send(embed);
         };
         
         if(!args[1] || isNaN(args[1])) {
           embed.setColor(red)
-          embed.setDescription(`${client.emojis.get("645467660229935135")} I need an amount to add to them. Or you didn't add a number.`)
+          embed.setDescription(`${client.emojis.get(":x:")} I need an amount to add to them. Or you didn't add a number.`)
           
           return message.channel.send(embed)
         };
@@ -39,14 +39,14 @@ const embed = new RichEmbed()
         db.add(`usrCash_${usr.id}`, bal);
         
         embed.setColor(orange)
-        embed.setDescription(`${client.emojis.get('645467660229935135')} That user has been given: **${args[1]} ₪**`)
+        embed.setDescription(`${client.emojis.get(':x:')} That user has been given: **${args[1]} ₪**`)
         
         return message.channel.send(embed);
         
       } catch(e) {
         const embed = new RichEmbed()
           .setColor(red)
-          .setDescription(`${client.emojis.get("645467660229935135")} Something went wrong! Here is the error:
+          .setDescription(`${client.emojis.get(":x:")} Something went wrong! Here is the error:
 
           \`${e.message}\``)
         return message.channel.send(embed);

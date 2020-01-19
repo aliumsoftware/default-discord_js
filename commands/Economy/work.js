@@ -31,7 +31,7 @@ db.set(`hour4_${message.author.id}`, Date.now())
 db.add(`usrCash_${message.author.id}`, randomizer)
   let e = new RichEmbed()
     .setColor(orange)
-    .setDescription(`You earned a **${randomizer} ₪** paycheck.`)
+    .setDescription(`You earned a **${randomizer} 𝓐** paycheck.`)
   return message.channel.send(e)
       }
     }

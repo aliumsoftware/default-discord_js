@@ -1,5 +1,5 @@
 const { RichEmbed } = require("discord.js");
-const { red, orange } = require("../../colors.json");
+const { red, orange, green } = require("../../colors.json");
 const { readdirSync } = require('fs');
 const { stripIndents } = require("common-tags");
 const db = require('quick.db');
@@ -17,7 +17,7 @@ const db = require('quick.db');
   run: async (client, message, args) => {
     let pr = await db.fetch(`prefix_${message.guild.id}`);
     let embed = new RichEmbed()
-      .setColor(orange)
+      .setColor(green)
       //.setAuthor(`${client.user.tag} Help`, client.user.displayAvatarURL)
     
       if(!args[0]) {

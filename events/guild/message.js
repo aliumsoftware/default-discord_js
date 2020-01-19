@@ -19,7 +19,7 @@ const { RichEmbed } = require('discord.js');
         if(amt1 === amt2) {
           let embed = new RichEmbed()
             .setColor(orange)
-            .setDescription(`**${message.author.tag}** Just earned **${final} ₪**.`)
+            .setDescription(`**${message.author.tag}** Just earned **${final}** 𝓐.`)
           db.add(`usrCash_${message.author.id}`, final);
           return message.channel.send(embed).then(m => {m.delete(10000)})
         }

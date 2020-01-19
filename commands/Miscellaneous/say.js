@@ -12,7 +12,7 @@ const { orange, red } = require('../../colors.json');
     },
     
   run: async (client, message, args) => {
-  let error = client.emojis.get('645467660229935135');
+  let error = client.emojis.get(':x:');
   const embed = new RichEmbed()
   
   if(!message.member.hasPermission(['MANAGE_MESSAGES', 'ADMINISTRATOR']) || !message.guild.owner) {

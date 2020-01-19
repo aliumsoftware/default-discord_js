@@ -1,5 +1,5 @@
 const { RichEmbed } = require("discord.js");
-const { orange } = require("../../colors.json");
+const { red } = require("../../colors.json");
 
   module.exports = {
     config: {
@@ -16,14 +16,14 @@ const { orange } = require("../../colors.json");
 let m = message.mentions.members.first() || message.guild.members.get(args[0]);
 if(!args[0]) {
 let e = new RichEmbed()
-  .setColor(orange) 
+  .setColor(red) 
   .setURL(message.author.displayAvatarURL)
   .setAuthor(`${message.author.tag}'s Avatar`, message.author.displayAvatarURL)
   .setImage(message.author.displayAvatarURL)
 return message.channel.send(e)
 } else {
 let embed = new RichEmbed()
-  .setColor(orange)
+  .setColor(red)
   .setURL(m.user.displayAvatarURL)
   .setAuthor(`${m.user.tag}'s Avatar`, m.user.displayAvatarURL)
   .setImage(m.user.displayAvatarURL)

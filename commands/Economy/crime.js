@@ -34,7 +34,7 @@ let time = ms(timeout - (Date.now() - hour6))
           db.set(`hour6_${message.author.id}`, Date.now());
           
           embed.setColor(orange)
-          embed.setDescription(`You were successful and you earned: **${amt} ₪**.`)
+          embed.setDescription(`You were successful and you earned: **${amt} 𝓐**.`)
           
           return message.channel.send(embed);
         } else {
@@ -42,7 +42,7 @@ let time = ms(timeout - (Date.now() - hour6))
           db.subtract(`usrCash_${message.author.id}`, 1000);
           
           embed.setColor(red)
-          embed.setDescription(`You were caught and you had to pay: **1000 ₪**`)
+          embed.setDescription(`You were caught and you had to pay: **1000 𝓐**`)
           
           return message.channel.send(embed);
         };
