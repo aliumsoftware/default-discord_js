@@ -54,7 +54,7 @@ const embed = new RichEmbed()
       
     } else {
       if(!message.guild.me.hasPermission(["ADMINISTRATOR", "ADD_REACTIONS"])) return;
-        return message.react(client.emojis.get("645467660229935135"));
+        return message.react(client.emojis.get(":check:"));
       };
     }
   }
