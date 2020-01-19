@@ -13,7 +13,6 @@ module.exports = {
     },
 
     run: async (bot, message, args) => {
-  if(!message.channel.nsfw) return message.channel.send(embed.setDescription('Run this command in a `NSFW` channel.').setColor(red));
         let msg = await message.channel.send("Grabbing you a meme...")
         const { body } = await snekfetch
             .get('https://www.reddit.com/r/memes.json?sort=top&t=week')
