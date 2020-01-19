@@ -1,5 +1,5 @@
 const { RichEmbed } = require('discord.js');
-const { orange, red } = require('../../colors.json');
+const { orange, red, green } = require('../../colors.json');
 
   module.exports = {
     config: {
@@ -30,7 +30,7 @@ const { orange, red } = require('../../colors.json');
       };
     message.delete().catch()
     
-    embed.setColor(orange)
+    embed.setColor(green)
     embed.setDescription(text)
     return message.channel.send(embed)
     }
