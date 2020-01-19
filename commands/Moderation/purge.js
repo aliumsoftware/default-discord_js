@@ -3,9 +3,9 @@ const { orange, red } = require('../../colors.json');
 
   module.exports = {
     config: {
-      name: 'purge',
-      aliases: ['clear', 'delete', 'del'],
-      usage: '^purge (messages)',
+      name: 'clear',
+      aliases: [],
+      usage: '!clear (messages)',
       description: 'Clears a certain amount of messages',
       category: 'Moderation',
       accessableby: 'Moderator+'
@@ -24,11 +24,11 @@ const embed = new RichEmbed()
     embed.setDescription(`Please supply an amount of messages to delete.`)
       return message.channel.send(embed);
   };
-  const fetched = await message.channel.fetchMessages(args[0]);
-    message.channel.bulkDelete(fetched)
+   let messagecount = parseInt(args[0]) || 1;
+    message.channel.bulkDelete(messagecount + 1)
     
     embed.setColor(orange)
-    embed.setDescription(`Deleted ${args[0]} ${args[0] === 1 ? 'message' : 'messages'}`)
+    embed.setDescription(`Deleted ${args[0]} ${args[0] === 0 ? 'message' : 'messages'}`)
     return message.channel.send(embed).then(m => {m.delete(10000)})
     }
   }
