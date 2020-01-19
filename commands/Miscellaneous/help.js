@@ -18,6 +18,7 @@ const db = require('quick.db');
     let pr = await db.fetch(`prefix_${message.guild.id}`);
     let embed = new RichEmbed()
       .setColor(red)
+    .setfooter(`Aiden's Lounge | https://invite.gg/aiden`)
       //.setAuthor(`${client.user.tag} Help`, client.user.displayAvatarURL)
     
       if(!args[0]) {

@@ -30,9 +30,7 @@ const { orange, red, green } = require('../../colors.json');
       };
     message.delete().catch()
     
-    embed.setColor(red)
-    embed.setTitle(`Choose What You Are Interested In!`)
-    embed.setFooter(`Aiden's Lounge | Roles`)
+    embed.setColor(green)
     embed.setDescription(text)
     return message.channel.send(embed)
     }
