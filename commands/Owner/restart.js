@@ -12,7 +12,7 @@ const { orange, red } = require("../../colors.json");
     },
 
   run: async (client, message, args) => {
-      if(message.author.id === '535585397435006987') {
+      if(message.author.id === '272809862591938570') {
         try {
           let embed = new RichEmbed()
             embed.setColor(orange)

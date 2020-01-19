@@ -16,13 +16,13 @@ const { orange, red } = require('../../colors.json');
 let embed = new RichEmbed()
 
   if(!args[0]) {
-    embed.setDescription(`${client.emojis.get(':x:')} You need to provide a minecraft Server IP. (host)`)
+    embed.setDescription(`You need to provide a minecraft Server IP. (host)`)
     embed.setColor(red)
     return message.channel.send(embed)
   };
     
   if(!args[1]) {
-    embed.setDescription(`${client.emojis.get(':x:')} You need to provide a minecraft server port.`)
+    embed.setDescription(`You need to provide a minecraft server port.`)
     embed.setColor(red)
     return message.channel.send(embed)
   };

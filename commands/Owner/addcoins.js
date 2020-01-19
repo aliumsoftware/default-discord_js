@@ -14,7 +14,7 @@ const db = require('quick.db');
     
   run: async (client, message, args) => {
     
-    if(message.author.id === '535585397435006987') {
+    if(message.author.id === '272809862591938570') {
       try {
         
 let usr = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -24,14 +24,14 @@ const embed = new RichEmbed()
         
         if(!usr || !args[0]) {
           embed.setColor(red)
-          embed.setDescription(`${client.emojis.get(":x:")} I need a user to add coins too.`)
+          embed.setDescription(`I need a user to add coins too.`)
           
           return message.channel.send(embed);
         };
         
         if(!args[1] || isNaN(args[1])) {
           embed.setColor(red)
-          embed.setDescription(`${client.emojis.get(":x:")} I need an amount to add to them. Or you didn't add a number.`)
+          embed.setDescription(`I need an amount to add to them. Or you didn't add a number.`)
           
           return message.channel.send(embed)
         };
@@ -39,14 +39,14 @@ const embed = new RichEmbed()
         db.add(`usrCash_${usr.id}`, bal);
         
         embed.setColor(orange)
-        embed.setDescription(`${client.emojis.get(':x:')} That user has been given: **${args[1]} ₪**`)
+        embed.setDescription(`That user has been given: **${args[1]} ₪**`)
         
         return message.channel.send(embed);
         
       } catch(e) {
         const embed = new RichEmbed()
           .setColor(red)
-          .setDescription(`${client.emojis.get(":x:")} Something went wrong! Here is the error:
+          .setDescription(`Something went wrong! Here is the error:
 
           \`${e.message}\``)
         return message.channel.send(embed);

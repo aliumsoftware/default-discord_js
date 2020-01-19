@@ -16,19 +16,19 @@ const embed = new RichEmbed()
   if(!message.member.hasPermission(['ADMINISTRATOR', 'MANAGE_MESSAGES']) || !message.guild.owner) return;
   if(!message.guild.me.hasPermission(['ADMINISTRATOR', 'MANAGE_MESSAGES'])) {
     embed.setColor(red)
-    embed.setDescription(`${client.emojis.get(':x:')} I don't have the correct permissions to execute this command.`)
+    embed.setDescription(`I don't have the correct permissions to execute this command.`)
       return message.channel.send(embed);
       };
   if(!args[0]) {
     embed.setColor(red)
-    embed.setDescription(`${client.emojis.get('x:')} Please supply an amount of messages to delete.`)
+    embed.setDescription(`Please supply an amount of messages to delete.`)
       return message.channel.send(embed);
   };
   const fetched = await message.channel.fetchMessages(args[0]);
     message.channel.bulkDelete(fetched)
     
     embed.setColor(orange)
-    embed.setDescription(`${client.emojis.get(':x:')} Deleted ${args[0]} ${args[0] === 1 ? 'message' : 'messages'}`)
+    embed.setDescription(`Deleted ${args[0]} ${args[0] === 1 ? 'message' : 'messages'}`)
     return message.channel.send(embed).then(m => {m.delete(10000)})
     }
   }
