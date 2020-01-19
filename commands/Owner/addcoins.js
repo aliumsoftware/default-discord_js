@@ -39,7 +39,7 @@ const embed = new RichEmbed()
         db.add(`usrCash_${usr.id}`, bal);
         
         embed.setColor(orange)
-        embed.setDescription(`That user has been given: **${args[1]} ₪**`)
+        embed.setDescription(`That user has been given: **${args[1]} 𝓐**`)
         
         return message.channel.send(embed);
         

@@ -1,26 +1,25 @@
 const { RichEmbed } = require("discord.js");
-const { orange } = require("../../colors.json");
+const { red } = require("../../colors.json");
 
   module.exports = {
     config: {
-      name: 'ping',
+      name: 'lounge',
       aliases: ['latency', 'ms'],
-      usage: '-ping',
+      usage: '-lounge',
       description: 'Displays the bot\'s latency',
       category: 'Miscellaneous',
       accessableby: 'Users'
     },
     
   run: async (client, message, args) => {
-    message.channel.send(`${client.emojis.get('645467593830039623')} Pinging...`).then(m => {
-      let ping = m.createdTimestamp - message.createdTimestamp
+    message.channel.send(`Getting you the invite...`).then(m => {
+      let ping = 'https://invite.gg/aiden'
       let embed = new RichEmbed()
-        .setColor(orange)
+        .setColor(red)
         .setThumbnail(client.user.displayAvatarURL)
-       // .setTitle(`🏓 | Ping-pong!`)
-        .addField('[**__Bot Latency:__**]', `\`${ping}MS\``, true)
-        .addField('[**__API Response Time:__**]', `\`${Math.round(client.ping)}MS\``, true)
-        .addField('[**__Client ID__**]', `\`${client.user.id}\``)
+       // .setTitle(`Here you are!`)
+        .addField('[**__Invite:__**]', `\`${ping}\``, true)
+
         
       m.delete()
       message.channel.send(embed)
