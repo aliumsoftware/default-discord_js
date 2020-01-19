@@ -17,7 +17,7 @@ const db = require('quick.db');
   run: async (client, message, args) => {
     let pr = await db.fetch(`prefix_${message.guild.id}`);
     let embed = new RichEmbed()
-      .setColor(green)
+      .setColor(red)
       //.setAuthor(`${client.user.tag} Help`, client.user.displayAvatarURL)
     
       if(!args[0]) {
