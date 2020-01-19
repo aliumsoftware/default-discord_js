@@ -7,7 +7,7 @@ const ms = require('parse-ms');
     config: {
       name: 'crime',
       aliases: ['illegal'],
-      usage: '^crime',
+      usage: '!crime',
       description: 'One way to earn money.',
       category: 'Economy',
       accessableby: 'Users'      

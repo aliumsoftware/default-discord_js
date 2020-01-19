@@ -4,8 +4,8 @@ const f = require('node-fetch');
 
   module.exports = {
     config: {
-    name: 'cat',
-    aliases: ['kitty', 'kit', 'catty-cat', 'kitten'],
+    name: 'chicken',
+    aliases: ['chick', 'rooster', 'cockadoodledo'],
     usage: ['!cat'],
     description: 'Sends a cat picture',
     category: 'Miscellaneous',
@@ -13,7 +13,7 @@ const f = require('node-fetch');
     },
     
   run: async (client, message, args) => {
-    f('http://aws.random.cat/meow')
+    f('hhttp://fotozon.com/r/')
       .then(res => res.json()).then(body => {
           if(!body) return message.channel.send('Image couldn\'t be received. Try again.')
         let cEmbed = new RichEmbed()

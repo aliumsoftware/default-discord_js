@@ -5,7 +5,7 @@ const { orange } = require("../../colors.json");
     config: {
       name: 'ping',
       aliases: ['latency', 'ms'],
-      usage: '-ping',
+      usage: '!ping',
       description: 'Displays the bot\'s latency',
       category: 'Miscellaneous',
       accessableby: 'Users'

@@ -8,7 +8,7 @@ const os = require('os');
     config: {
       name: 'botinfo',
       aliases: ['basicinfo'],
-      usage: '^botinfo',
+      usage: '!botinfo',
       description: 'Bot\'s information',
       category: 'Miscellaneous',
       accessableby: 'Users'

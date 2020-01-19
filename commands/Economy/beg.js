@@ -7,7 +7,7 @@ const db = require('quick.db')
     config: {
       name: 'beg',
       aliases: ['gimmemoney', 'begging'],
-      usage: '^beg',
+      usage: '!beg',
       description: 'That\'s one way to do that.',
       category: 'Economy',
       accessableby: 'Users'      
@@ -30,7 +30,7 @@ const embed = new RichEmbed()
         db.set(`beg_${message.author.id}`, Date.now());
         
         embed.setColor(orange)
-        embed.setDescription(`The Aiden Gods decided to donate you **${amt} ₪**`)
+        embed.setDescription(`The Aiden Gods decided to donate you **${amt} 𝓐**`)
         db.add(`usrCash_${message.author.id}`, amt)
         
         return message.channel.send(embed)

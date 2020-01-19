@@ -5,7 +5,7 @@ const { orange, red, green } = require('../../colors.json');
     config: {
       name: 'say',
       aliases: ['speak', 'talk'],
-      usage: '^say (whatever you want the bot to say)',
+      usage: '!say (whatever you want the bot to say)',
       description: 'Says what you inputted in an agrument.',
       category: 'Miscellaneous',
       accessableby: 'Users'

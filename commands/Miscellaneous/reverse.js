@@ -5,7 +5,7 @@ const { orange, red } = require("../../colors.json");
     config: {
       name: 'reverse',
       aliases: ['backwards'],
-      usage: '^reverse (text or phrase)',
+      usage: '!reverse (text or phrase)',
       description: 'Reverses a set of text',
       category: 'Miscellaneous',
       accessableby: 'Users'

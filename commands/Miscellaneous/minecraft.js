@@ -6,7 +6,7 @@ const { orange, red } = require('../../colors.json');
     config: {
       name: 'minecraft',
       aliases: ['mc', 'mcs'],
-      usage: '^minecraft (server IP) (server port)',
+      usage: '!minecraft (server IP) (server port)',
       description: 'Displays the minecraft server you input.',
       category: 'Miscellaneous',
       accessableby: 'Users'      

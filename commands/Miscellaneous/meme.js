@@ -1,19 +1,19 @@
 const snekfetch = require('snekfetch')
 const { RichEmbed } = require("discord.js")
-const { orange } = require("../../colors.json")
+const { orange, red } = require("../../colors.json")
 
 module.exports = {
     config: {
         name: "meme",
         aliases: [],
-        usage: "^meme",
+        usage: "!meme",
         category: "Miscellaneous",
         description: "Sends a meme from the subreddit r/memes",
         accessableby: "Users"
     },
 
     run: async (bot, message, args) => {
-
+  if(!message.channel.nsfw) return message.channel.send(embed.setDescription('Run this command in a `NSFW` channel.').setColor(red));
         let msg = await message.channel.send("Grabbing you a meme...")
         const { body } = await snekfetch
             .get('https://www.reddit.com/r/memes.json?sort=top&t=week')
