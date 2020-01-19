@@ -25,7 +25,7 @@ const os = require('os');
     let embed = new RichEmbed()
       .setColor(orange)
       .setThumbnail(client.user.displayAvatarURL)
-      .setTitle(`${client.emojis.get('646198812435546142')} **Client Information**`)
+      .setTitle(`**Client Information**`)
       .addField('[**__Theme:__**]', '`Orange v2.1 (#eb5931)`', true)
       .addField('[**__Client ID:__**]', `\`${client.user.id}\``, true).addField('[**__Version:__**]', '`v2`', true)
       .addField('[**__Memory Usage:__**]', `\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / 512MB\``, true)
