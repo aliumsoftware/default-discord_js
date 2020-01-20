@@ -1,5 +1,5 @@
 const { RichEmbed } = require('discord.js');
-const { orange, red, green } = require('../../colors.json');
+const { orange, red } = require('../../colors.json');
 const db = require('quick.db');
 const ms = require('parse-ms');
 
@@ -14,15 +14,15 @@ const ms = require('parse-ms');
     },
     
   run: async (client, message, args) => {
-let r1 = Math.floor(Math.random() * 10) + 1;
-let r2 = Math.floor(Math.random() * 10) + 1;
-let timeout = 14400000;
+let r1 = Math.floor(Math.random() * 100) + 1;
+let r2 = Math.floor(Math.random() * 100) + 1;
+let timeout = 21600000;
 let amt = Math.floor(Math.random() * 1000) + 1;
 let embed = new RichEmbed()
     
-    let hour4 = await db.fetch(`hour4_${message.author.id}`);
-  if(hour4 !== null && timeout - (Date.now() - hour4) > 0) {
-let time = ms(timeout - (Date.now() - hour4))
+    let hour6 = await db.fetch(`hour6_${message.author.id}`);
+  if(hour6 !== null && timeout - (Date.now() - hour6) > 0) {
+let time = ms(timeout - (Date.now() - hour6))
   
   embed.setColor(red)
   embed.setDescription(`You can commit a crime again in **${time.hours}h, ${time.minutes}m, and ${time.seconds}s**.`)
@@ -31,14 +31,14 @@ let time = ms(timeout - (Date.now() - hour4))
       } else {
         if(r1 === r2) {
           db.add(`usrCash_${message.author.id}`, amt);
-          db.set(`hour4_${message.author.id}`, Date.now());
+          db.set(`hour6_${message.author.id}`, Date.now());
           
-          embed.setColor(green)
+          embed.setColor(orange)
           embed.setDescription(`You were successful and you earned: **${amt} 𝓐**.`)
           
           return message.channel.send(embed);
         } else {
-          db.set(`hour4_${message.author.id}`, Date.now());
+          db.set(`hour6_${message.author.id}`, Date.now());
           db.subtract(`usrCash_${message.author.id}`, 1000);
           
           embed.setColor(red)
