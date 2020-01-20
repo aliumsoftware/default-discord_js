@@ -42,7 +42,7 @@ const chooseArr = ["✅", "❌"];
               if ((me === "✅" && clientChosen === "❌") ||
                   (me === "✅" && clientChosen === "✅") ||
                   (me === "✅" && clientChosen === "❌")) {
-                      return "**You pet it! You're great! 🐶**";
+                      return "**You pet it! You're great! :D**";
               } else {
                   return "**You didn't pet it! You're a horrible person. :(**";
               }
