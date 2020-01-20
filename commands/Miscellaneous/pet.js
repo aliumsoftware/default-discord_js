@@ -9,7 +9,7 @@ const chooseArr = ["✅", "❌"];
     config: {
       name: "pet",
       category: "Fun",
-      description: "Rock Paper Scissors game. React to one of the emojis to play the game.",
+      description: "Pet the doggo event. React to one of the emojis to play the event.",
       usage: "!pet",
       category: 'Miscellaneous',
       accessableby: 'Users',
