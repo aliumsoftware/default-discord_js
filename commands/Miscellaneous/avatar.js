@@ -5,7 +5,7 @@ const { red } = require("../../colors.json");
     config: {
       name: 'avatar',
       aliases: ['av', 'pfp', 'profilepic'],
-      usage: '^av [@user | id]',
+      usage: '!av [@user | id]',
       description: 'Displays a users avatar',
       category: 'Miscellaneous',
       accessableby: 'Users'

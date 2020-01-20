@@ -1,12 +1,12 @@
 const mc = require('minecraft-server-util');
 const { RichEmbed } = require('discord.js');
-const { orange, red } = require('../../colors.json');
+const { orange, red, green } = require('../../colors.json');
 
   module.exports = {
     config: {
       name: 'minecraft',
       aliases: ['mc', 'mcs'],
-      usage: '^minecraft (server IP) (server port)',
+      usage: '!minecraft (server IP) (server port)',
       description: 'Displays the minecraft server you input.',
       category: 'Miscellaneous',
       accessableby: 'Users'      
@@ -22,7 +22,7 @@ let embed = new RichEmbed()
   };
     
   if(!args[1]) {
-    embed.setDescription(`You need to provide a minecraft server port.`)
+    embed.setDescription(`You need to provide a minecraft server port. 25565 is the default for most servers.`)
     embed.setColor(red)
     return message.channel.send(embed)
   };
@@ -30,7 +30,7 @@ let embed = new RichEmbed()
     mc(args[0], parseInt(args[1]), (error, res) =>{
       if(error) throw error;
       let fEmbed = new RichEmbed()
-        .setColor(orange)
+        .setColor(green)
         //.setThumbnail(res.favicon)
         .setTitle(`**${res.host}'s Server Information**`)
         .addField('[**__Server IP__**]', res.host, true)

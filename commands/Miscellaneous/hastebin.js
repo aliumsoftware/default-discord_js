@@ -6,7 +6,7 @@ const { orange, red } = require('../../colors.json');
     config: {
       name: 'hastebin',
       aliases: ['hb', 'haste'],
-      usage: '^hastebin (text/code)',
+      usage: '!hastebin (text/code)',
       description: 'Creates a hastebin without you even having to go to the web!',
       category: 'Miscellaneous',
       accessableby: 'Users'

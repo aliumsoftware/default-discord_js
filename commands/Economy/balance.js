@@ -6,7 +6,7 @@ const db = require("quick.db");
     config: {
       name: 'balance',
       aliases: ['bal', 'bank', 'expenses', 'amount'],
-      usage: '^balance [@user | id]',
+      usage: '!balance [@user | id]',
       description: 'Displays a users balance',
       category: 'Economy',
       accessableby: 'Users'

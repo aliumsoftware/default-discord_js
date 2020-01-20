@@ -6,7 +6,7 @@ const f = require("node-fetch");
     config: {
     name: 'dog',
     aliases: ['doggo', 'puppy', 'pupers', 'doggy'],
-    usage: ['^dog'],
+    usage: ['!dog'],
     description: 'Sends a dog picture',
     category: 'Miscellaneous',
     accessableby: 'Users'

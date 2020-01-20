@@ -1,25 +1,25 @@
 
 const { RichEmbed } = require("discord.js");
 const { promptMessage } = require("../../functions.js");
-const { orange } = require('../../colors.json');
+const { brown } = require('../../colors.json');
 
-const chooseArr = ["🗻", "📰", "✂"];
+const chooseArr = ["✅", "❌"];
 
   module.exports = {
     config: {
-      name: "rps",
+      name: "pet",
       category: "Fun",
       description: "Rock Paper Scissors game. React to one of the emojis to play the game.",
-      usage: "!rps",
+      usage: "!pet",
       category: 'Miscellaneous',
       accessableby: 'Users',
     },
     
       run: async (client, message, args) => {
           const embed = new RichEmbed()
-              .setColor(orange)
+              .setColor(brown)
              // .setFooter(message.guild.me.displayName, client.user.displayAvatarURL)
-              .setDescription("Add a reaction to one of these emojis to play the game!")
+              .setDescription("Will you pet the doggo? 🐶")
              // .setTimestamp();
 
           const m = await message.channel.send(embed);
@@ -34,20 +34,17 @@ const chooseArr = ["🗻", "📰", "✂"];
               .setDescription('')
               .setTitle(result)
               .addField('[**__You\'ve Chosen:__**]', reacted, true)
-              .addField('[**__I\'ve Chosen:__**]', botChoice, true)
               //.addField(result, `${reacted} vs ${botChoice}`);
 
           m.edit(embed);
 
           function getResult(me, clientChosen) {
-              if ((me === "🗻" && clientChosen === "✂") ||
-                  (me === "📰" && clientChosen === "🗻") ||
-                  (me === "✂" && clientChosen === "📰")) {
-                      return "**You won!**";
-              } else if (me === clientChosen) {
-                  return "**It's a tie!**";
+              if ((me === "✅" && clientChosen === "❌") ||
+                  (me === "✅" && clientChosen === "✅") ||
+                  (me === "✅" && clientChosen === "❌")) {
+                      return "**You pet it! You're great! 🐶**";
               } else {
-                  return "**You lost!**";
+                  return "**You didn't pet it! You're a horrible person. :(**";
               }
           }
       }
