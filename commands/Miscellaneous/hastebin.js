@@ -1,6 +1,6 @@
 const hb = require('hastebin-gen');
 const { RichEmbed } = require('discord.js');
-const { orange, red } = require('../../colors.json');
+const { orange, red, green } = require('../../colors.json');
 
   module.exports = {
     config: {
