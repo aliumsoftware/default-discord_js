@@ -17,7 +17,7 @@ let invaildArgs = new RichEmbed()
   .setDescription(`There needs to be more than 0 arguments. Usage: \`!reverse (text or phrase)\``)
   if(!args[0]) return message.channel.send(invaildArgs)
 let text = args.join(" ");
-    text = text.split("").space().join("");
+    text = text.split("").reverse().join("");
 let final = new RichEmbed()
   .setColor(red)
   .setDescription(text)

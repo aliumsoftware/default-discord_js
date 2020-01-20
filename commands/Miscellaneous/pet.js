@@ -3,7 +3,7 @@ const { RichEmbed } = require("discord.js");
 const { promptMessage } = require("../../functions.js");
 const { brown } = require('../../colors.json');
 
-const chooseArr = ["🗻", "📰", "✂"];
+const chooseArr = ["✅", "❌"];
 
   module.exports = {
     config: {
@@ -19,7 +19,7 @@ const chooseArr = ["🗻", "📰", "✂"];
           const embed = new RichEmbed()
               .setColor(brown)
              // .setFooter(message.guild.me.displayName, client.user.displayAvatarURL)
-              .setDescription("Will you pet the doggo?")
+              .setDescription("Will you pet the doggo? 🐶")
              // .setTimestamp();
 
           const m = await message.channel.send(embed);
@@ -34,20 +34,17 @@ const chooseArr = ["🗻", "📰", "✂"];
               .setDescription('')
               .setTitle(result)
               .addField('[**__You\'ve Chosen:__**]', reacted, true)
-              .addField('[**__I\'ve Chosen:__**]', botChoice, true)
               //.addField(result, `${reacted} vs ${botChoice}`);
 
           m.edit(embed);
 
           function getResult(me, clientChosen) {
-              if ((me === "🗻" && clientChosen === "✂") ||
-                  (me === "📰" && clientChosen === "🗻") ||
-                  (me === "✂" && clientChosen === "📰")) {
-                      return "**You won!**";
-              } else if (me === clientChosen) {
-                  return "**It's a tie!**";
+              if ((me === "✅" && clientChosen === "❌") ||
+                  (me === "✅" && clientChosen === "✅") ||
+                  (me === "✅" && clientChosen === "❌")) {
+                      return "**You pet it! You're great! :D**";
               } else {
-                  return "**You lost!**";
+                  return "**You didn't pet it! You're a horrible person. :(**";
               }
           }
       }
