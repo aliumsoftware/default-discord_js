@@ -14,12 +14,12 @@ const { orange, red } = require("../../colors.json");
   run: async (client, message, args) => {
 let invaildArgs = new RichEmbed()
   .setColor(red)
-  .setDescription(`There needs to be more than 0 arguments. Usage: \`^reverse (text or phrase)\``)
+  .setDescription(`There needs to be more than 0 arguments. Usage: \`!reverse (text or phrase)\``)
   if(!args[0]) return message.channel.send(invaildArgs)
 let text = args.join(" ");
-    text = text.split("").reverse().join("");
+    text = text.split("").space().join("");
 let final = new RichEmbed()
-  .setColor(orange)
+  .setColor(red)
   .setDescription(text)
 return message.channel.send(final)
     }
