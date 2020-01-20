@@ -5,4 +5,4 @@ const client = new Client();
   ["command", "events"].forEach(x => require(`./handlers/${x}`)(client));
 
 client.login(process.env.DTOKEN);
-require("http").createServer(async (req,res) => { res.statusCode = 200; res.write("Welcome to the Aiden discord bot!"); res.end(); }).listen(3000);
+require("http").createServer(async (req,res) => { res.statusCode = 200; res.write("Welcome to the Aiden discord bot!"); res.end(); });

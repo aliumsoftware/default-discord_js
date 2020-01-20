@@ -28,6 +28,7 @@
     "snekfetch": "^4.0.4",
     "teamtrees-api": "^1.2.0",
     "urban": "^0.3.2",
+    "binding": "^1.5.0",
     "util": "^0.12.1",
     "yt-search": "^0.4.1",
     "ytdl-core": "^1.0.0"
