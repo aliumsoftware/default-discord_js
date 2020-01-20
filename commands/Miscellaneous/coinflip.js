@@ -5,7 +5,7 @@ const { orange } = require("../../colors.json");
     config: {
       name: 'coinflip',
       aliases: ['cf', 'flipacoin'],
-      usage: '!coinflip',
+      usage: '^coinflip',
       description: 'Flips a coin',
       category: 'Miscellaneous',
       accessableby: 'Users'

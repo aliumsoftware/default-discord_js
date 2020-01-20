@@ -7,7 +7,7 @@ const { orange, red } = require("../../colors.json");
     config: {
       name: 'work',
       aliases: ['job'],
-      usage: '!work',
+      usage: '^work',
       description: 'A way to earn money',
       category: 'Economy',
       accessableby: 'Users'

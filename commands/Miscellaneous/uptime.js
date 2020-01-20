@@ -5,7 +5,7 @@ const { RichEmbed } = require("discord.js");
     config: {
       name: 'uptime',
       aliases: ['timeup'],
-      usage: '!uptime',
+      usage: '^uptime',
       description: 'Displays the bot\'s uptime',
       category: 'Miscellaneous',
       accessableby: 'Users'

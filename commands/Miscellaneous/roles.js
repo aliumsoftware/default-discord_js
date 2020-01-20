@@ -6,9 +6,9 @@ const os = require('os');
 
   module.exports = {
     config: {
-      name: 'botinfo',
-      aliases: ['basicinfo'],
-      usage: '^botinfo',
+      name: 'roles',
+      aliases: ['roles'],
+      usage: '^roles',
       description: 'Bot\'s information',
       category: 'Miscellaneous',
       accessableby: 'Users'
@@ -25,8 +25,8 @@ const os = require('os');
     let embed = new RichEmbed()
       .setColor(red)
       .setThumbnail(client.user.displayAvatarURL)
-      .setTitle(`**Client Information**`)
-      .addField('[**__Theme:__**]', '`Red v3.1 (#eb5931)`', true)
+      .setTitle(`**Choose What You Are Interested In**`)
+      .addField('[**__Theme:__**]', '``', true)
       .addField('[**__Client ID:__**]', `\`${client.user.id}\``, true).addField('[**__Version:__**]', '`v2`', true)
       .addField('[**__Memory Usage:__**]', `\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / 512MB\``, true)
       .addField('[**__CPU Usage:__**]', `\`${t}%\``, true).addField('[**__OS:__**]', `\`${System.OS}\``, true)

@@ -5,7 +5,7 @@ const { red } = require("../../colors.json");
     config: {
       name: 'invite',
       aliases: ['invite', 'bot'],
-      usage: '!invite',
+      usage: '-invite',
       description: 'Displays the bot\'s latency',
       category: 'Miscellaneous',
       accessableby: 'Users'

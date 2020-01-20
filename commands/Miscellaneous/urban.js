@@ -6,7 +6,7 @@ const { orange, red } = require("../../colors.json");
     config: {
     name: 'urban',
     aliases: ['ud', 'urbandictionary'],
-    usage: ['!urban search (word) | -urban random'],
+    usage: ['-urban search (word) | -urban random'],
     description: 'Sends the selected word from the urban dictonary',
     category: 'Miscellaneous',
     accessableby: 'Users',

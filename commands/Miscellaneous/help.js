@@ -8,7 +8,7 @@ const db = require('quick.db');
     config: {
       name: 'help',
       aliases: ['commandhelp', 'commands'],
-      usage: '!help [command name or alias]',
+      usage: '^help [command name or alias]',
       description: 'Displays the commands or gives the command information',
       category: 'Miscellaneous',
       accessableby: 'Users'
@@ -19,7 +19,7 @@ const db = require('quick.db');
     let embed = new RichEmbed()
       .setColor(red)
       //.setAuthor(`${client.user.tag} Help`, client.user.displayAvatarURL)
-
+    
       if(!args[0]) {
         const categories = readdirSync("./commands/")
         
