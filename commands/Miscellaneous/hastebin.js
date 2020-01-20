@@ -1,12 +1,12 @@
 const hb = require('hastebin-gen');
 const { RichEmbed } = require('discord.js');
-const { orange, red } = require('../../colors.json');
+const { green, red, blue } = require('../../colors.json');
 
   module.exports = {
     config: {
       name: 'hastebin',
       aliases: ['hb', 'haste'],
-      usage: '!hastebin (text/code)',
+      usage: 'e!hastebin (text/code)',
       description: 'Creates a hastebin without you even having to go to the web!',
       category: 'Miscellaneous',
       accessableby: 'Users'
@@ -18,7 +18,7 @@ let type = args.slice(1).join(' ');
 const embed = new RichEmbed()
     if(!args[0]) {
       embed.setColor(red)
-      embed.setDescription('What would you like in a hastebin? Usage: `^hastebin (text/code)`')
+      embed.setDescription('What would you like in a hastebin? Usage: `++hastebin (text/code)`')
       return message.channel.send(embed);
     };
     
@@ -26,7 +26,7 @@ const embed = new RichEmbed()
     message.delete().catch()
     
     hb(text).then(r => {
-    embed.setColor(orange)
+    embed.setColor(blue)
     embed.setAuthor(`${message.author.tag}'s Hastebin:`, message.author.displayAvatarURL)
     embed.setDescription(`**[Hastebin Link](${r})**`)
     embed.setTimestamp()
