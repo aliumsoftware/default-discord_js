@@ -1,6 +1,5 @@
 const { RichEmbed } = require("discord.js");
 const { orange, red } = require("../../colors.json");
-
   module.exports = {
     config: {
       name: 'reverse',
