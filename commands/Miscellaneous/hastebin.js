@@ -12,13 +12,13 @@ const { orange, red, green } = require('../../colors.json');
       accessableby: 'Users'
     },
   
-  run: async (client, message, args) => {
+ run: async (client, message, args) => {
 let text = args.slice(0).join(' ');
 let type = args.slice(1).join(' ');
 const embed = new RichEmbed()
     if(!args[0]) {
       embed.setColor(red)
-      embed.setDescription('What would you like in a hastebin? Usage: `^hastebin (text/code)`')
+      embed.setDescription('What would you like in a hastebin? Usage: `!hastebin (text/code)`')
       return message.channel.send(embed);
     };
     

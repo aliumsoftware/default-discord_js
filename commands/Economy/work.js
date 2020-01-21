@@ -16,7 +16,7 @@ const { orange, red } = require("../../colors.json");
   run: async (client, message, args) => {
 let usrBalance = await db.fetch(`usrCash_${message.author.id}`);
   if(usrBalance === null) usrBalance = 0;    
-let timeout = 14400000 // 14,400,000
+let timeout = 3600000 // 14,400,000
 
 let randomizer = Math.floor(Math.random() * 1000) + 1;
 let hour4 = await db.fetch(`hour4_${message.author.id}`);

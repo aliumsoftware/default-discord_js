@@ -15,7 +15,7 @@ const ms = require('parse-ms');
     
   run: async (client, message, args) => {
 let r1 = Math.floor(Math.random() * 2) + 1;
-let timeout = 14400000;
+let timeout = 1800000;
 let amt = Math.floor(Math.random() * 1000) + 1000;
 let embed = new RichEmbed()
     
