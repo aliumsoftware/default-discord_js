@@ -1,7 +1,7 @@
-let prefix = "^";
+let prefix = "!";
 const active = new Map()
 const db = require('quick.db');
-const { orange } = require('../../colors.json');
+const { orange, green } = require('../../colors.json');
 const { RichEmbed } = require('discord.js');
 
   module.exports = async (client, message) => {
@@ -18,7 +18,7 @@ const { RichEmbed } = require('discord.js');
 
         if(amt1 === amt2) {
           let embed = new RichEmbed()
-            .setColor(orange)
+            .setColor(green)
             .setDescription(`**${message.author.tag}** Just earned **${final}** 𝓐.`)
           db.add(`usrCash_${message.author.id}`, final);
           return message.channel.send(embed).then(m => {m.delete(10000)})

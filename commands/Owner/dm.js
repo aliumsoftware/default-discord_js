@@ -1,11 +1,13 @@
 const { RichEmbed } = require("discord.js")
 
 module.exports = {
+  config: {
   name: "dm",
   aliases: [],
   description: "Hidden",
   category: "Developers",
-  usage: ["Hidden"],
+  usage: ["Hidden"]
+  },
   
   run: async (bot, message, args) => {
   if(message.author.id === "272809862591938570") {

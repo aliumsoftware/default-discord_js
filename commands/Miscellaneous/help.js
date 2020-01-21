@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+5555const { RichEmbed } = require("discord.js");
 const { red, orange, green } = require("../../colors.json");
 const { readdirSync } = require('fs');
 const { stripIndents } = require("common-tags");
