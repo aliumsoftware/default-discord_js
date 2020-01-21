@@ -15,7 +15,7 @@ const { orange, red } = require("../../colors.json");
       if(message.author.id === '272809862591938570') {
         try {
           let embed = new RichEmbed()
-            embed.setColor(orange)
+            embed.setColor(red)
             embed.addField('[**__Restarting__**]', `Bot will restart.`, true)
 
           let m = await message.channel.send(embed).then(m => {
