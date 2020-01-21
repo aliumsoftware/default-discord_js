@@ -53,8 +53,9 @@ const db = require("quick.db");
     embed.setColor(green)
     embed.setFooter(`https://invite.gg/aiden`)
     embed.setDescription(text)
-     let id = await db.fetch(`dbAnnouncement_${client.guild}`);
-    return client.channels.find(client =>client.name === id).send(embed);
+     let name = await db.fetch(`dbAnnouncement_${client.guild}`);
+     let id = message.guild.channels.find(channel => channel.name === name);
+    return id.send(embed);
     }
     }
   }
