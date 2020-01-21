@@ -20,28 +20,34 @@ var number = Math.floor(Math.random() * 5000);
       run: async (client, message, args) => {
           
 		  var keepRunning = true;
-		  while(keepRunning == true) {
+
         const embed = new RichEmbed()
               .setColor(orange)
              // .setFooter(message.guild.me.displayName, client.user.displayAvatarURL)
               .setDescription("That was the banker. Here is your offer. "+ number + "𝓐 Deal or no deal?")
              // .setTimestamp();
           const m = await message.channel.send(embed);
-		  
+  while(keepRunning == true) {
+        embed
+        .setColor(orange)
+             // .setFooter(message.guild.me.displayName, client.user.displayAvatarURL)
+              .setDescription("That was the banker. Here is your offer. "+ number + "𝓐 Deal or no deal?")
+             // .setTimestamp();
+		  m.edit(embed)
           const reacted = await promptMessage(m, message.author, 30, chooseArr);
 		  if (reacted === "⛔")
 		  {
-			  if (Math.floor(Math.random() * 5 == 1)) {
+			  if (Math.floor(Math.random() * 2 == 1)) {
 				  number = 0;
           embed
               .setDescription('')
-              .setTitle(result)
-              .addField('[**__You Lost :/__**]', number, true)
+              .setTitle("The Banker Pulls Out.")
+              .addField('[**__You Missed Out :/ Total:__**]', number, true)
 				  keepRunning = false;
 				  await m.clearReactions();
 			  }
 			  else {
-				  number = Math.floor(Math.random() * 5000);
+				  number += Math.floor(Math.random() * 5000);
 				  keepRunning = true;
 				  await m.clearReactions();
 			  }
