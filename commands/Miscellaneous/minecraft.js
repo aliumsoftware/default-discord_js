@@ -22,10 +22,14 @@ let embed = new RichEmbed()
   };
     
   if(!args[1]) {
+    args[1] = 25565;
+  /*
     embed.setDescription(`You need to provide a minecraft server port. 25565 is the default for most servers.`)
     embed.setColor(red)
     return message.channel.send(embed)
+  */
   };
+
     
     mc(args[0], parseInt(args[1]), (error, res) =>{
       if(error) throw error;
