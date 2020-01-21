@@ -26,7 +26,7 @@ const db = require("quick.db");
     {
       db.set(`dbAnnouncement_${client.guild}`, args[1]);
       embed.setColor(orange)
-      embed.setDescription(`Set announcement channel name as ` + args[1]);
+      embed.setDescription(`Set announcement channel ID as: ` + args[1]);
       return message.channel.send(embed)
     }
     //Set title of announcements
@@ -34,7 +34,7 @@ const db = require("quick.db");
       {
         db.set(`dbAnnounceTitle_${client.guild}`, args.slice(1).join(' '));
       embed.setColor(orange)
-      embed.setDescription(`Set announcement title as ` + args.slice(1).join(' '));
+      embed.setDescription(`Set announcement title as: ` + args.slice(1).join(' '));
       return message.channel.send(embed)
       }
     //Run announcement
@@ -46,16 +46,15 @@ const db = require("quick.db");
     embed.setColor(green)
     embed.setDescription(`What would you like the announcement to say? (Usage: !announce (message))`)
     return message.channel.send(embed);
-      };
+      }
     //message.delete().catch()
     let title = await db.fetch(`dbAnnounceTitle_${client.guild}`);
     embed.setTitle(title)
     embed.setColor(green)
     embed.setFooter(`https://invite.gg/aiden`)
     embed.setDescription(text)
-     let name = await db.fetch(`dbAnnouncement_${client.guild}`);
-     let id = message.guild.channels.find(channel => channel.name === name);
-    return id.send(embed);
+     let id = await db.fetch(`dbAnnouncement_${client.guild}`);
+    return client.channels.get(id).send(embed);
     }
     }
   }
