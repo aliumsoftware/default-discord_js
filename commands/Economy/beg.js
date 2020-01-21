@@ -14,7 +14,7 @@ const db = require('quick.db')
     },
     
   run: async (client, message, args) => {
-let timeout = 3600000;
+let timeout = 3600000 / 2;
 let amt = Math.floor(Math.random() * 1000) + 1;
 const embed = new RichEmbed()
 

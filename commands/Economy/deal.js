@@ -1,13 +1,13 @@
 
 const { RichEmbed } = require("discord.js");
 const { promptMessage } = require("../../functions.js");
-const { orange, red } = require('../../colors.json');
+const { orange, red, yellow } = require('../../colors.json');
 const db = require('quick.db');
 const ms = require('parse-ms');
 
 const chooseArr = ["✅", "⛔"];
-var number = Math.floor(Math.random() * 4000) + 1000;
-let timeout = 0;//3600000 / 2;
+var number = Math.floor(Math.random() * 500) + 500;
+let timeout = 3600000 / 2;
   module.exports = {
     config: {
       name: "deal",
@@ -15,7 +15,7 @@ let timeout = 0;//3600000 / 2;
       category: "Fun",
       description: "Deal or no deal game. React to one of the emojis to play the game.",
       usage: "!deal",
-      category: 'Fun',
+      category: 'Economy',
       accessableby: 'Users',
     },
     
@@ -34,14 +34,15 @@ let timeout = 0;//3600000 / 2;
 		  var keepRunning = true;
 
             embed
-              .setColor(orange)
+              .setColor(yellow)
              // .setFooter(message.guild.me.displayName, client.user.displayAvatarURL)
               .setDescription("That was the banker. Here is your offer. "+ number + "𝓐 Deal or no deal?")
              // .setTimestamp();
+              .setFooter("Click ✅ for Deal or ⛔ for no deal. | If you hit No Deal, the Banker will reoffer.")
           const m = await message.channel.send(embed);
   while(keepRunning == true) {
         embed
-        .setColor(orange)
+        .setColor(yellow)
              // .setFooter(message.guild.me.displayName, client.user.displayAvatarURL)
               .setDescription("That was the banker. Here is your offer. "+ number + "𝓐 Deal or no deal?")
              // .setTimestamp();
@@ -50,19 +51,24 @@ let timeout = 0;//3600000 / 2;
 		  if (reacted === "⛔")
 		  {
 			  if (Math.floor(Math.random() * 5) == 1) {
-				  number = 0;
+				  number = -1000;
           embed
               .setDescription('')
+              .setColor(red)
               .setTitle("The Banker Pulls Out.")
-              .addField('[**__You Missed Out :/ Total:__**]', number, true)
+              .addField('[**You Lost :/:**]', number + '𝓐', true)
           m.edit(embed);
+          db.add(`usrCash_${message.author.id}`, number);
+          number = (Math.floor(Math.random() * 500) + 500);
+          await m.clearReactions();
 				  keepRunning = false;
-				  await m.clearReactions();
+				  
 			  }
 			  else {
-				  number += (Math.floor(Math.random() * 4000) + 1000);
+				  number += (Math.floor(Math.random() * 500) + 500);
+          await m.clearReactions();
 				  keepRunning = true;
-				  await m.clearReactions();
+				  
 			  }
 			  
 		  }
@@ -74,8 +80,10 @@ let timeout = 0;//3600000 / 2;
               .addField('[**__You Won__**]', number, true);
 			  
 			  m.edit(embed);
+        number += (Math.floor(Math.random() * 500) + 500);
+        await m.clearReactions();
 			  keepRunning = false;
-			  await m.clearReactions();
+			  
 		  }
           
           
