@@ -26,7 +26,7 @@ const db = require("quick.db");
     {
       db.set(`dbAnnouncement_${client.guild}`, args[1]);
       embed.setColor(orange)
-      embed.setDescription(`Set announcement channel ID as` + args[1]);
+      embed.setDescription(`Set announcement channel name as ` + args[1]);
       return message.channel.send(embed)
     }
     //Set title of announcements
@@ -54,7 +54,7 @@ const db = require("quick.db");
     embed.setFooter(`https://invite.gg/aiden`)
     embed.setDescription(text)
      let id = await db.fetch(`dbAnnouncement_${client.guild}`);
-    return client.channels.get(id).send(embed);
+    return client.channels.find(client =>client.name === id).send(embed);
     }
     }
   }
