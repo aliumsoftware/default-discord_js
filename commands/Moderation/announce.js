@@ -8,7 +8,7 @@ const db = require("quick.db");
       aliases: ['announcement'],
       usage: '!announce (whatever you want the bot to say)',
       description: 'Says what you inputted in an agrument in a predefined announcement channel',
-      category: 'Miscellaneous',
+      category: "Moderation",
       accessableby: 'Administrators'
     },
     
@@ -18,7 +18,9 @@ const db = require("quick.db");
   if (args[0] == "set")
     {
       db.set(`dbAnnouncement_${client.guild}`, args[1]);
-      return message.channel.send("Set announcement channel ID as " + args[1]);
+      embed.setColor(orange)
+      embed.setDescription(`Set announcement channel ID as` + args[1]);
+      return message.channel.send(embed)
     }
     else{
   if(!message.member.hasPermission(['MANAGE_MESSAGES', 'ADMINISTRATOR']) || !message.guild.owner) {
@@ -40,7 +42,8 @@ const db = require("quick.db");
     embed.setColor(green)
     embed.setFooter(`https://invite.gg/aiden`)
     embed.setDescription(text)
-    return client.channels.get(db.fetch(`dbAnnouncement_${client.guild}`)).send(embed);
+     let id = await db.fetch(`dbAnnouncement_${client.guild}`);
+    return client.channels.get(id).send(embed);
     }
     }
   }
