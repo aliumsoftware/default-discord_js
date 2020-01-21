@@ -25,14 +25,14 @@ const { orange, red, green } = require('../../colors.json');
     
   if(!args[0]) {
     embed.setColor(red)
-    embed.setDescription(`What would you like me to say? Usage: \`!say (whatever you want the bot to say)\``)
+    embed.setDescription(`What would you like the announcement to say? (Usage: !announce (message))`)
     return message.channel.send(embed);
       };
-    message.delete().catch()
+    //message.delete().catch()
     
     embed.setColor(green)
     embed.setFooter(`Aiden's Lounge | https://invite.gg/aiden`)
     embed.setDescription(text)
-    return message.channel.send(embed)
+    return client.channels.get('667973823554912277').send(embed);
     }
   }
