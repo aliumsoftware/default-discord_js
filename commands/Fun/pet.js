@@ -11,7 +11,7 @@ const chooseArr = ["✅", "❌"];
       category: "Fun",
       description: "Rock Paper Scissors game. React to one of the emojis to play the game.",
       usage: "!pet",
-      category: 'Miscellaneous',
+      category: 'Fun',
       accessableby: 'Users',
     },
     

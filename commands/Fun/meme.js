@@ -7,7 +7,7 @@ module.exports = {
         name: "meme",
         aliases: [],
         usage: "!meme",
-        category: "Miscellaneous",
+        category: "Fun",
         description: "Sends a meme from the subreddit r/memes",
         accessableby: "Users"
     },

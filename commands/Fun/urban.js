@@ -8,7 +8,7 @@ const { orange, red } = require("../../colors.json");
     aliases: ['ud', 'urbandictionary'],
     usage: ['!urban search (word) | -urban random'],
     description: 'Sends the selected word from the urban dictonary',
-    category: 'Miscellaneous',
+    category: 'Fun',
     accessableby: 'Users',
     },
   run: async (client, message, args) => {

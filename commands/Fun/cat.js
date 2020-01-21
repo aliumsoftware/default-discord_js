@@ -8,7 +8,7 @@ const f = require('node-fetch');
     aliases: ['kitty', 'kit', 'catty-cat', 'kitten'],
     usage: ['!cat'],
     description: 'Sends a cat picture',
-    category: 'Miscellaneous',
+    category: 'Fun',
     accessableby: 'Users'
     },
     

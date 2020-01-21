@@ -8,7 +8,7 @@ const f = require("node-fetch");
     aliases: ['doggo', 'puppy', 'pupers', 'doggy'],
     usage: ['!dog'],
     description: 'Sends a dog picture',
-    category: 'Miscellaneous',
+    category: 'Fun',
     accessableby: 'Users'
     },
 

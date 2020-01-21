@@ -6,8 +6,8 @@ const db = require('quick.db');
 const ms = require('parse-ms');
 
 const chooseArr = ["✅", "⛔"];
-var number = Math.floor(Math.random() * 5000);
-let timeout = 3600000;
+var number = Math.floor(Math.random() * 4000) + 1000;
+let timeout = 0;//3600000 / 2;
   module.exports = {
     config: {
       name: "deal",
@@ -15,7 +15,7 @@ let timeout = 3600000;
       category: "Fun",
       description: "Deal or no deal game. React to one of the emojis to play the game.",
       usage: "!deal",
-      category: 'Miscellaneous',
+      category: 'Fun',
       accessableby: 'Users',
     },
     
@@ -26,7 +26,7 @@ let timeout = 3600000;
             let time = ms(timeout - (Date.now() - deal))
       
           embed.setColor(red)
-          embed.setDescription(`You can beg again in: \`${time.hours}h ${time.minutes}m ${time.seconds}s\`.`)
+          embed.setDescription(`You can play again in: \`${time.hours}h ${time.minutes}m ${time.seconds}s\`.`)
           
           return message.channel.send(embed).then(m => {m.delete(10000)})
       } 
