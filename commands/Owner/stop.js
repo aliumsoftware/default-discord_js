@@ -3,29 +3,22 @@ const { orange, red, green } = require("../../colors.json");
 
   module.exports = {
     config: {
-      name: 'restart',
+      name: 'stop',
       aliases: ['reboot', 'rebootprocess', 'botstop'],
-      usage: '!restart',
-      description: 'Restarts the bot.',
+      usage: '!stop',
+      description: 'Stops the bot.',
       category: 'Owner',
       accessableby: 'Bot Owner'
     },
   run: async (client, message, args) => {
-      if(message.author.id === '272809862591938570' || message.author.id === '162369340069511180') {
+      if(message.author.id === '272809862591938570') {
         try {
           let embed = new RichEmbed()
             embed.setColor(red)
-            embed.addField('[**__Restarting__**]', `Bot will restart.`, true)
+            embed.addField('[**__Stopping__**]', `Bot will now stop. Please `, true)
 
           let m = await message.channel.send(embed).then(m => {
             process.exit();
-            client.login(process.env.DTOKEN).then(() => {
-              let e = new RichEmbed()
-                .setColor(green)
-                .addField('[**__Success__**]', `Bot restarted successfully.`)
-            m.delete()
-              return message.channel.send(e)
-            })
           })
         } catch(e) {
           let embed = new RichEmbed()

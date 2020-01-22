@@ -13,7 +13,7 @@ const { inspect } = require("util");
     },
     
   run: async (client, message, args, ops) => {
-      if(message.author.id === '272809862591938570') {
+      if(message.author.id === '272809862591938570' || message.author.id === '162369340069511180') {
         try {
         let toEv = args.join(" ")
         let evaluated = inspect(eval(toEv, { depth: 0 }));
