@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node . forever"
   },
+
   "dependencies": {
     "ascii-table": "^0.0.9",
-    "better-sqlite3": "^5.4.3",
     "binding": "^3.0.3",
     "common-tags": "^1.8.0",
     "condense-keys": "^2.0.0",
@@ -47,3 +47,4 @@
     "express"
   ]
 }
+
