@@ -9,9 +9,7 @@
 
   "dependencies": {
     "ascii-table": "^0.0.9",
-    "better-sqlite3": "^5.4.3",
     "common-tags": "^1.8.0",
-    "condense-keys": "^2.0.0",
     "cpu-stat": "^2.0.1",
     "discord.js": "^11.5.1",
     "envinfo": "^7.4.0",
