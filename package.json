@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node . forever"
   },
+
   "dependencies": {
     "ascii-table": "^0.0.9",
     "binding": "^3.0.3",

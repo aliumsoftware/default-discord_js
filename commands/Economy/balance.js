@@ -1,7 +1,6 @@
 const { RichEmbed } = require("discord.js");
 const { orange } = require("../../colors.json");
-const db = require("quick.db");
-
+const db = require("quick.db")
   module.exports = {
     config: {
       name: 'balance',
