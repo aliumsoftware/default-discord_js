@@ -15,7 +15,7 @@ var path = require('path');
     
   run: async (client, message, args) => {
     
-    if(message.author.id === '272809862591938570') {
+    if(message.author.id === '272809862591938570'|| message.author.id === '162369340069511180') {
       try {
         
 let usr = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -41,6 +41,7 @@ let jsonPath = path.join(__dirname, '..', '..','Users', usr.id);
         };
         let bal = Number(args[1])
         json.balance += bal;
+        json.name = usr.username
         
         embed.setColor(orange)
         embed.setDescription(`That user has been given: **${args[1]} 𝓐**`)

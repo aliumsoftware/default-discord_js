@@ -27,6 +27,7 @@ let jsonPath = path.join(__dirname, '..', '..','Users', m.id);
       json = JSON.parse(fs.readFileSync(jsonDefault))
       json.balance = usrBalance
       json.bank = usrBank
+      json.name = m.username
       message.channel.send(`Transfered Old Money to a New Account!`)
       fs.writeFile(jsonPath, JSON.stringify(json), (err) => {
         if (err) {

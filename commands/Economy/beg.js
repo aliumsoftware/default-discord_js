@@ -35,6 +35,7 @@ let jsonPath = path.join(__dirname, '..', '..','Users', message.author.id);
         embed.setColor(orange)
         embed.setDescription(`The Aiden Gods decided to donate you **${amt} 𝓐**`)
         json.balance += amt;
+        json.name = message.author.username
         fs.writeFile(jsonPath, JSON.stringify(json), (err) => {
     if (err) {
         message.channel.send(err);
