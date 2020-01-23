@@ -32,7 +32,7 @@ let jsonPath = path.join(__dirname, '..', '..','Users', message.author.id);
       } else {
         json.daily = Date.now(); 
      if (message.guild = client.guilds.get("644676276593885209")) {
-       
+       //667838808611487784
         embed.setColor(green)
         embed.setDescription(`You have redeemed your daily bonus and recieved **5000 𝓐**`)
         json.balance += 5000;
