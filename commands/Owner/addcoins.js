@@ -1,6 +1,7 @@
 const { RichEmbed } = require('discord.js');
 const { orange, red } = require('../../colors.json');
-const db = require('quick.db');
+var fs = require("fs");
+var path = require('path');
 
   module.exports = {
     config: {
@@ -19,7 +20,10 @@ const db = require('quick.db');
         
 let usr = message.mentions.members.first() || message.guild.members.get(args[0]);
 const embed = new RichEmbed()
-  let coins = await db.fetch(`usrCash_${usr.id}`)
+let jsonPath = path.join(__dirname, '..', '..','Users', usr.id);
+    if ((fs.existsSync(jsonPath))) {
+    let json = JSON.parse(fs.readFileSync(jsonPath))
+  let coins = json.balance;
     if(coins === null) coins = 0;
         
         if(!usr || !args[0]) {
@@ -36,13 +40,25 @@ const embed = new RichEmbed()
           return message.channel.send(embed)
         };
         let bal = Number(args[1])
-        db.add(`usrCash_${usr.id}`, bal);
+        json.balance += bal;
         
         embed.setColor(orange)
         embed.setDescription(`That user has been given: **${args[1]} 𝓐**`)
-        
+                fs.writeFile(jsonPath, JSON.stringify(json), (err) => {
+    if (err) {
+        message.channel.send(err);
+        return;
+    };
+});
         return message.channel.send(embed);
-        
+    }
+            else
+      {
+        const embed = new RichEmbed()
+        embed.setColor(red)
+        embed.setDescription(`File does not exist. Please run !bal to generate a new account`);
+        return message.channel.send(embed)
+      }
       } catch(e) {
         const embed = new RichEmbed()
           .setColor(red)

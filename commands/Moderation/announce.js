@@ -1,6 +1,8 @@
 const { RichEmbed } = require('discord.js');
 const { orange, red, green } = require('../../colors.json');
-const db = require("quick.db");
+
+var fs = require("fs");
+var path = require('path');
 
   module.exports = {
     config: {
@@ -14,6 +16,11 @@ const db = require("quick.db");
     //Alright I have to go to my next class, cya.
   run: async (client, message, args) => {
   let error = client.emojis.get(':x:');
+    let json = {announcement: "t", announcetitle: "t"}
+  let jsonPath = path.join(__dirname, '..', '..','Servers', message.author.id + ".json");
+      if ((fs.existsSync(jsonPath))) {
+     json = JSON.parse(fs.readSync(jsonPath))
+      }
   const embed = new RichEmbed()
   //If you are not an Admin, you can't do it
   if(!message.member.hasPermission(['MANAGE_MESSAGES', 'ADMINISTRATOR']) || !message.guild.owner) {
@@ -21,26 +28,16 @@ const db = require("quick.db");
     embed.setDescription(`You do not have the correct permissions to use this command! Must be an administrator.`)
     return message.channel.send(embed)
   }
-    //Set announcement channel
-  if (args[0] == "set")
-    {
-      db.set(`dbAnnouncement_${client.guild}`, args[1]);
-      embed.setColor(orange)
-      embed.setDescription(`Set announcement channel ID as: ` + args[1]);
-      return message.channel.send(embed)
-    }
-    //Set title of announcements
-    else if (args[0] == "title")
-      {
-        db.set(`dbAnnounceTitle_${client.guild}`, args.slice(1).join(' '));
-      embed.setColor(orange)
-      embed.setDescription(`Set announcement title as: ` + args.slice(1).join(' '));
-      return message.channel.send(embed)
+    else {
+      if (!args[1] || !args[0]) {
+        embed.setColor(orange)
+        embed.setDescription(`Invalid syntax. (Usage: !announce (Channel Name) (Title_of_announcement) (message))`)
+      return message.channel.send(embed);
       }
     //Run announcement
-    else {
+    
   
-  let text = args.slice(0).join(' ');
+  let text = args.slice(2).join(' ');
     
   if(!args[0]) {
     embed.setColor(green)
@@ -48,13 +45,14 @@ const db = require("quick.db");
     return message.channel.send(embed);
       }
     //message.delete().catch()
-    let title = await db.fetch(`dbAnnounceTitle_${client.guild}`);
+    let title = args[1].replace("_", " ");
     embed.setTitle(title)
     embed.setColor(green)
     embed.setFooter(`https://invite.gg/aiden`)
     embed.setDescription(text)
-     let id = await db.fetch(`dbAnnouncement_${client.guild}`);
-    return client.channels.get(id).send(embed);
+     let id = client.channels.get();
+    return message.guild.channels.find(channel => channel.name === args[0].replace("_", ' ')).send(embed);
     }
     }
+
   }

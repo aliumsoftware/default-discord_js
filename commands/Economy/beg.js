@@ -1,7 +1,8 @@
 const { RichEmbed } = require('discord.js');
 const { orange, red } = require('../../colors.json');
 const ms = require('parse-ms');
-const db = require('quick.db')
+var fs = require("fs");
+var path = require('path');
 
   module.exports = {
     config: {
@@ -17,8 +18,10 @@ const db = require('quick.db')
 let timeout = 1800000 / 2;
 let amt = Math.floor(Math.random() * 1000) + 1;
 const embed = new RichEmbed()
-
-  let beg = await db.fetch(`beg_${message.author.id}`);
+let jsonPath = path.join(__dirname, '..', '..','Users', message.author.id);
+    if ((fs.existsSync(jsonPath))) {
+    let json = JSON.parse(fs.readFileSync(jsonPath))
+  let beg = json.beg;
         if(beg !== null && timeout - (Date.now() - beg) > 0) {
             let time = ms(timeout - (Date.now() - beg))
       
@@ -27,12 +30,25 @@ const embed = new RichEmbed()
           
           return message.channel.send(embed).then(m => {m.delete(10000)})
       } else {
-        db.set(`beg_${message.author.id}`, Date.now());
+        json.beg = Date.now();
         
         embed.setColor(orange)
         embed.setDescription(`The Aiden Gods decided to donate you **${amt} 𝓐**`)
-        db.add(`usrCash_${message.author.id}`, amt)
-        
+        json.balance += amt;
+        fs.writeFile(jsonPath, JSON.stringify(json), (err) => {
+    if (err) {
+        message.channel.send(err);
+        return;
+    };
+});
+      }   
+        return message.channel.send(embed)
+      }
+    else
+      {
+        const embed = new RichEmbed()
+        embed.setColor(red)
+        embed.setDescription(`File does not exist. Please run !bal to generate a new account`);
         return message.channel.send(embed)
       }
     }

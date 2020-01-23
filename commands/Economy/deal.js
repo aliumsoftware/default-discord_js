@@ -2,7 +2,8 @@
 const { RichEmbed } = require("discord.js");
 const { promptMessage } = require("../../functions.js");
 const { orange, red, yellow } = require('../../colors.json');
-const db = require('quick.db');
+var fs = require("fs");
+var path = require('path');
 const ms = require('parse-ms');
 
 const chooseArr = ["✅", "⛔"];
@@ -21,9 +22,12 @@ let timeout = 3600000 / 2;
     
       run: async (client, message, args) => {
         const embed = new RichEmbed()
-        let deal = await db.fetch(`deal_${message.author.id}`);
-        if(deal !== null && timeout - (Date.now() - deal) > 0) {
-            let time = ms(timeout - (Date.now() - deal))
+        let jsonPath = path.join(__dirname, '..', '..','Users', message.author.id);
+    if ((fs.existsSync(jsonPath))) {
+    let json = JSON.parse(fs.readFileSync(jsonPath))
+        
+        if(json.deal !== null && timeout - (Date.now() - json.deal) > 0) {
+            let time = ms(timeout - (Date.now() - json.deal))
       
           embed.setColor(red)
           embed.setDescription(`You can play again in: \`${time.hours}h ${time.minutes}m ${time.seconds}s\`.`)
@@ -58,7 +62,8 @@ let timeout = 3600000 / 2;
               .setTitle("The Banker Pulls Out.")
               .addField('[**You Lost :/:**]', number + '𝓐', true)
           m.edit(embed);
-          db.add(`usrCash_${message.author.id}`, number);
+          json.balance += number;
+          
           number = (Math.floor(Math.random() * 500) + 500);
           await m.clearReactions();
 				  keepRunning = false;
@@ -73,7 +78,7 @@ let timeout = 3600000 / 2;
 			  
 		  }
 		  else {
-			  db.add(`usrCash_${message.author.id}`, number);
+        json.balance += number;
 			  embed
               .setDescription('')
               .setTitle("Deal!")
@@ -89,10 +94,18 @@ let timeout = 3600000 / 2;
           
           
 		  }
-        db.set(`deal_${message.author.id}`, Date.now());
+          json.deal = Date.now();
         }
+    fs.writeFile(jsonPath, JSON.stringify(json), (err) => {
+      if (err) {
+          message.channel.send(err);
+          return;
+      };
+    });
 	  }
-          
+      
 
+          
+      }
   }
       

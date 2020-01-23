@@ -2,7 +2,8 @@ const { RichEmbed } = require("discord.js");
 const { red, orange, green } = require("../../colors.json");
 const { readdirSync } = require('fs');
 const { stripIndents } = require("common-tags");
-const db = require('quick.db');
+var fs = require("fs");
+var path = require('path');
 
   module.exports = {
     config: {
@@ -15,7 +16,12 @@ const db = require('quick.db');
     },
     
   run: async (client, message, args) => {
-    let pr = await db.fetch(`prefix_${message.guild.id}`);
+    let json
+    let jsonPath = path.join(__dirname, '..', '..','Servers', message.guild.id + ".json");
+    if (fs.existsSync(jsonPath))
+    json = JSON.parse(fs.readFileSync(jsonPath))
+    else json = {prefix: "^"};
+    let pr = json.prefix
     let embed = new RichEmbed()
       .setColor(red)
       //.setAuthor(`${client.user.tag} Help`, client.user.displayAvatarURL)
