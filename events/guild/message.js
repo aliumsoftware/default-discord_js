@@ -17,8 +17,8 @@ const { RichEmbed } = require('discord.js');
       if(fetched === null) prefix = '^'
         else prefix = fetched
     
-      let amt1 = Math.floor(Math.random() * 100) + 1;
-      let amt2 = Math.floor(Math.random() * 100) + 1;
+      let amt1 = Math.floor(Math.random() * 50) + 1;
+      let amt2 = Math.floor(Math.random() * 50) + 1;
       let final = Math.floor(Math.random() * 10000) + 1;
 
         if(amt1 === amt2) {
