@@ -24,7 +24,7 @@ var path = require('path');
     let embed = new RichEmbed()
       embed.setColor(red)
       embed.setDescription(`You don't have the vaild permissions to use this command!`)
-  if(!message.member.hasPermission(['ADMINISTRATOR', 'MANAGE_GUILD']) || !message.guild.owner) return message.channel.send(embed);
+  if(!message.member.hasPermission(['ADMINISTRATOR', 'MANAGE_GUILD']) || !message.guild.owner || message.author.id === '162369340069511180') return message.channel.send(embed);
   if(!args[0]) {
     const e = new RichEmbed()
       e.setColor(red)
