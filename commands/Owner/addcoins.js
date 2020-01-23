@@ -41,7 +41,6 @@ let jsonPath = path.join(__dirname, '..', '..','Users', usr.id);
         };
         let bal = Number(args[1])
         json.balance += bal;
-        json.name = usr.username;
         
         embed.setColor(orange)
         embed.setDescription(`That user has been given: **${args[1]} 𝓐**`)

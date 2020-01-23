@@ -45,7 +45,7 @@ var path = require('path');
     return message.channel.send(embed);
       }
     //message.delete().catch()
-    let title = args[1].replace("_", " ");
+    let title = args[1].replace("-", " ");
     embed.setTitle(title)
     embed.setColor(green)
     embed.setFooter(`https://invite.gg/aiden`)
