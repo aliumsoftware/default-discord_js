@@ -19,19 +19,23 @@ var path = require('path');
 let timeout = 1000 * 60 * 60 * 24;
 const embed = new RichEmbed()
 let jsonPath = path.join(__dirname, '..', '..','Users', message.author.id);
+let guildPath = path.join(__dirname, '..', '..','Servers', message.guild.id);
+let guildjson;
+    if (fs.existsSync(guildPath)) guildjson = JSON.pars(fs.readFileSync(guildPath))
+    else guildjson = {allowDaily: false}
     if ((fs.existsSync(jsonPath))) {
     let json = JSON.parse(fs.readFileSync(jsonPath))
   let daily = json.daily;
-        if(daily !== null && timeout - (Date.now() - daily) > 0) {
+        json.daily = Date.now(); 
+     if (guildjson.allowDaily) {
+               if(daily !== null && timeout - (Date.now() - daily) > 0) {
             let time = ms(timeout - (Date.now() - daily))
       
           embed.setColor(red)
           embed.setDescription(`You can get your daily bonus in: \`${time.hours}h ${time.minutes}m ${time.seconds}s\`.`)
           
           return message.channel.send(embed).then(m => {m.delete(10000)})
-      } else {
-        json.daily = Date.now(); 
-     if (message.guild = client.guilds.get("644676276593885209")) {
+      }
        //667838808611487784
         embed.setColor(green)
         embed.setDescription(`You have redeemed your daily bonus and recieved **5000 𝓐**`)
@@ -45,7 +49,7 @@ let jsonPath = path.join(__dirname, '..', '..','Users', message.author.id);
     
     };
 });
-      }   
+         
         return message.channel.send(embed)
       }
     else
