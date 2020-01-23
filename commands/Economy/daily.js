@@ -37,7 +37,7 @@ let jsonPath = path.join(__dirname, '..', '..','Users', message.author.id);
         embed.setDescription(`You have redeemed your daily bonus and recieved **5000 𝓐**`)
         json.balance += 5000;
       }
-  else message.channel.send(`You can only get your daily bonus at https://invite.gg/aiden or https://discord.gg/RS4VceB`)
+  else message.channel.send(`Sorry, you can only get your daily bonus at https://invite.gg/aiden or https://discord.gg/RS4VceB`)
         fs.writeFile(jsonPath, JSON.stringify(json), (err) => {
     if (err) {
         message.channel.send(err);
