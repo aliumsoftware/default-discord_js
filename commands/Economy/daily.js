@@ -19,15 +19,15 @@ var path = require('path');
 let timeout = 1000 * 60 * 60 * 24;
 const embed = new RichEmbed()
 let jsonPath = path.join(__dirname, '..', '..','Users', message.author.id);
-let guildPath = path.join(__dirname, '..', '..','Servers', message.guild.id);
+let guildPath = path.join(__dirname, '..', '..','Servers', message.guild.id + ".json");
 let guildjson;
-    if (fs.existsSync(guildPath)) guildjson = JSON.pars(fs.readFileSync(guildPath))
-    else guildjson = {allowDaily: false}
+    if (fs.existsSync(guildPath))  guildjson = JSON.parse(fs.readFileSync(guildPath))
+    else guildjson = {allowdaily: "false"}
     if ((fs.existsSync(jsonPath))) {
     let json = JSON.parse(fs.readFileSync(jsonPath))
   let daily = json.daily;
         json.daily = Date.now(); 
-     if (guildjson.allowDaily) {
+     if (guildjson.allowdaily === "true") {
                if(daily !== null && timeout - (Date.now() - daily) > 0) {
             let time = ms(timeout - (Date.now() - daily))
       
