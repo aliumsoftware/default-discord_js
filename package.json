@@ -6,14 +6,13 @@
   "scripts": {
     "start": "node . forever"
   },
-
   "dependencies": {
     "ascii-table": "^0.0.9",
     "common-tags": "^1.8.0",
     "cpu-stat": "^2.0.1",
     "discord.js": "^11.5.1",
-    "envinfo": "^7.4.0",
-    "express": "^4.16.4",
+    "envinfo": "^7.5.0",
+    "express": "^4.17.1",
     "fs": "^0.0.2",
     "get-stream": "^5.1.0",
     "got": "^10.2.2",
@@ -29,8 +28,8 @@
     "teamtrees-api": "^1.2.0",
     "urban": "^0.3.2",
     "util": "^0.12.1",
-    "yt-search": "^0.4.1",
-    "ytdl-core": "^1.0.0"
+    "yt-search": "^1.1.2",
+    "ytdl-core": "^1.0.7"
   },
   "engines": {
     "node": "8.x"
@@ -45,4 +44,3 @@
     "express"
   ]
 }
-
