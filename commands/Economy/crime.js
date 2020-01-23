@@ -7,7 +7,7 @@ var path = require('path');
   module.exports = {
     config: {
       name: 'crime',
-      aliases: ['illegal'],
+      aliases: ['illegal', 'steal'],
       usage: '!crime',
       description: 'One way to earn money.',
       category: 'Economy',
