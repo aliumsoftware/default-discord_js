@@ -14,7 +14,9 @@ var path = require('path');
   
   run: async (client, message, args) => {
     if(hasPerms(message.author, "Owner", message) || hasPerms(message.author, "Admin", message)) {
+    
     let m = message.mentions.members.first() || message.guild.members.get(args[0]);
+    if (args[1] == "Guest" && hasPerms(m, "Owner", message) && hasPerms(message.author, "Admin", message)) return message.react(`❌`)
       if (args[1] == "Admin" && hasPerms(message.author, "Owner", message) || args[1] == "Owner" && hasPerms(message.author, "Owner", message)) {
         let jsonPath = path.join(__dirname,'..', '..', 'Users', m.id);
         if ((fs.existsSync(jsonPath))) {
