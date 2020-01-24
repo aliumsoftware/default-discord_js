@@ -28,6 +28,7 @@ var path = require('path');
               return;
             };
         });
+      return message.channel.send ("Promoted " + m.name + " to " + args[1])
       }
       }
       else if (args[1] == "Moderator")
@@ -42,8 +43,24 @@ var path = require('path');
               return;
             };
         });
+          return message.channel.send ("Promoted " + m.name + " to " + args[1])
       }
+          
         }
+      else if (args[1] == "Guest") {
+                          let jsonPath = path.join(__dirname,'..', '..', 'Users', m.id);
+        if ((fs.existsSync(jsonPath))) {
+          let json = JSON.parse(fs.readFileSync(jsonPath))
+          json.rank = "Guest"
+          fs.writeFile(jsonPath, JSON.stringify(json), (err) => {
+            if (err) {
+              message.channel.send(err);
+              return;
+            };
+        });
+          return message.channel.send ("Promoted " + m.name + " to " + args[1])
+      }
+      }
       else return message.channel.send("Insufficent Permissions. You can't promote this person to: " + args[1])
     }
     return message.react(`❌`)
