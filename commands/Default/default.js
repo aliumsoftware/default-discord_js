@@ -27,6 +27,6 @@ var path = require('path');
       });
       return message.channel.send("Account created for: " + message.author.username+" Default Command");
     }
-    else return message.channnel.send("Default Command")
+    else return message.channnel.send("Default Command");
       }
     }
