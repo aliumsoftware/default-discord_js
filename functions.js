@@ -31,5 +31,23 @@ module.exports = {
         return message
             .awaitReactions(filter, { max: 1, time: time})
             .then(collected => collected.first() && collected.first().emoji.name);
+    },
+  
+  hasPerms: function(author, perms, message) {
+    var fs = require("fs");
+    var path = require('path');
+    let jsonPath = path.join(__dirname,'Users', author.id);
+    if ((fs.existsSync(jsonPath))) {
+    let json = JSON.parse(fs.readFileSync(jsonPath))
+    if (json.rank == perms){
+      return true
+      message.channel.send("True")
+    } 
+      else return false
+      message.channel.send("False: " + json.rank + "and" + perms + "are not the same")
     }
+    else return false
+    message.channel.send("User not found")
+  }
+  
 };

@@ -1,6 +1,6 @@
 const { RichEmbed } = require("discord.js");
 const { orange, red, green } = require("../../colors.json");
-
+const { hasPerms } = require("../../functions.js");
   module.exports = {
     config: {
       name: 'restart',
@@ -11,7 +11,7 @@ const { orange, red, green } = require("../../colors.json");
       accessableby: 'Bot Owner'
     },
   run: async (client, message, args) => {
-      if(message.author.id === '272809862591938570' || message.author.id === '162369340069511180') {
+      if(hasPerms(message.author, "Owner", message) || hasPerms(message.author, "Admin", message)) {
         try {
           let embed = new RichEmbed()
             embed.setColor(red)
@@ -35,7 +35,7 @@ const { orange, red, green } = require("../../colors.json");
         }
       } else {
       if(!message.guild.me.hasPermission(["ADMINISTRATOR", "ADD_REACTIONS"])) return;
-        return message.react(client.emojis.get("645467660229935135"))
+        return message.react(`❌`)
       }
     }
   }

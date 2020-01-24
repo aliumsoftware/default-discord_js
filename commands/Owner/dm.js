@@ -1,5 +1,5 @@
 const { RichEmbed } = require("discord.js")
-
+const { hasPerms } = require("../../functions.js");
 module.exports = {
   config: {
   name: "dm",
@@ -10,10 +10,10 @@ module.exports = {
   },
   
   run: async (bot, message, args) => {
-  if(message.author.id === '272809862591938570' || message.author.id === '162369340069511180') {
+  if(hasPerms(message.author, "Owner", message) || hasPerms(message.author, "Admin", message)) {
    try {
   let user = await bot.fetchUser(args[0])
-  if(!user) return message.channel.send(`You need to supply a user Aiden/Cory.`)
+  if(!user) return message.channel.send(`You need to supply a user Aiden.`)
   let msg = args.slice(1).join(" ")
   if(!msg) return message.channel.send(`I need something to send.`)
     

@@ -1,5 +1,6 @@
 const { RichEmbed } = require('discord.js');
 const { orange, red } = require('../../colors.json');
+const { hasPerms } = require("../../functions.js");
 var fs = require("fs");
 var path = require('path');
 
@@ -15,7 +16,7 @@ var path = require('path');
     
   run: async (client, message, args) => {
     
-    if(message.author.id === '272809862591938570'|| message.author.id === '162369340069511180') {
+    if(hasPerms(message.author, "Owner", message)) {
       try {
         
 let usr = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -41,6 +42,7 @@ let jsonPath = path.join(__dirname, '..', '..','Users', usr.id);
         };
         let bal = Number(args[1])
         json.balance += bal;
+        json.name = usr.username;
         
         embed.setColor(orange)
         embed.setDescription(`That user has been given: **${args[1]} 𝓐**`)
