@@ -10,7 +10,7 @@ module.exports = {
   },
   
   run: async (bot, message, args) => {
-  if(hasPerms(message.author, "Owner", message) || hasPerms(message.author, "Admin", message)) {
+  if(hasPerms(message.author, "Owner", message) || hasPerms(message.author, "Admin", message) || hasPerms(message.author, "Mod", message)) {
    try {
   let user = await bot.fetchUser(args[0])
   if(!user) return message.channel.send(`You need to supply a user Aiden.`)
