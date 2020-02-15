@@ -17,31 +17,7 @@ const { RichEmbed } = require('discord.js');
       if(fetched === null) prefix = '^'
         else prefix = fetched
     
-      let amt1 = Math.floor(Math.random() * 50) + 1;
-      let amt2 = Math.floor(Math.random() * 50) + 1;
-      let final = Math.floor(Math.random() * 10000) + 1;
-
-        if(amt1 === amt2) {
-          let embed = new RichEmbed()
-            .setColor(green)
-            .setDescription(`**${message.author.tag}** Just earned **${final}** 𝓐.`)
-          let json2
-      let jsonPath2 = path.join(__dirname, '..', '..','Users', message.author.id);
-      let jsonPath2D = path.join(__dirname, '..', '..', 'user.json');
-    if (fs.existsSync(jsonPath2))
-    json2 = JSON.parse(fs.readFileSync(jsonPath2))
-          else json2 = JSON.parse(fs.readFileSync(jsonPath2D))
-          json2.balance += final;
-          fs.writeFile(jsonPath2, JSON.stringify(json2), (err) => {
-        if (err) {
-          message.channel.send(err);
-          return;
-        };
-      });
-          return message.channel.send(embed).then(m => {m.delete(10000)})
-        }
-    
-    
+     
     
       if(message.channel.type === 'dm') return;
       if(message.isMemberMentioned(client.user)) return message.reply(`The guild prefix is: \`${fetched || '^'}\`. You can change it with the prefix command.`)

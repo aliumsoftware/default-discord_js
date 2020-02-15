@@ -7,7 +7,7 @@ var path = require('path');
   ["command", "events"].forEach(x => require(`./handlers/${x}`)(client));
  
 client.login(process.env.DTOKEN);
-require("http").createServer(async (req,res) => { res.statusCode = 200; res.write("Welcome to the discord bot!"); res.end(); });
+require("http").createServer(async (req,res) => { res.statusCode = 200; res.write("Welcome to the Aiden discord bot (Alpha)!"); res.end(); });
 
 client.on("guildCreate", guild => {
     console.log("Joined a new guild: " + guild.name);
